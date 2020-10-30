@@ -24,7 +24,7 @@
 <meta name="author" content="Maxim G. Romanov" />
 
 
-<meta name="date" content="2020-10-23" />
+<meta name="date" content="2020-10-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -275,8 +275,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li><code>markdown</code></li>
 </ul>
-<div id="htmlwidget-a041ee821ecd3af9f5ff" style="width:672px;height:600px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-a041ee821ecd3af9f5ff">{"x":{"diagram":"\ndigraph writing_cycle {\n\n  # a \"graph\" statement\n  graph [overlap = false, fontsize = 10, rankdir = TB]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Baskerville,\n        fontsize = 10,\n        style = rounded,\n        penwidth = 0.1]\n  bibtex [label = \"bibTex bibliography\"]\n  markdown [shape=box, style=filled, fillcolor=grey50, fontcolor=white, fontname=\"courier-bold\", label = \"textfile in markdown\"] ;\n  zotero[label = \"Zotero\"]\n  pandoc[label=\"pandoc engine\"]\n  style[label=\"citation style\"]\n  latex[label=\"TeX engine\"]\n  html[label=\"HTML\"]\n  doc[label=\"MS Word\"]\n  pdf[label=\"PDF\"]\n  \n  \n  zotero->bibtex; bibtex->markdown; bibtex->pandoc;\n  markdown->pandoc; style->pandoc;\n  pandoc->html; pandoc->doc; pandoc->latex->pdf;\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-92be6707d4ac1c872f30" style="width:672px;height:600px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-92be6707d4ac1c872f30">{"x":{"diagram":"\ndigraph writing_cycle {\n\n  # a \"graph\" statement\n  graph [overlap = false, fontsize = 10, rankdir = TB]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Baskerville,\n        fontsize = 10,\n        style = rounded,\n        penwidth = 0.1]\n  bibtex [label = \"bibTex bibliography\"]\n  markdown [shape=box, style=filled, fillcolor=grey50, fontcolor=white, fontname=\"courier-bold\", label = \"textfile in markdown\"] ;\n  zotero[label = \"Zotero\"]\n  pandoc[label=\"pandoc engine\"]\n  style[label=\"citation style\"]\n  latex[label=\"TeX engine\"]\n  html[label=\"HTML\"]\n  doc[label=\"MS Word\"]\n  pdf[label=\"PDF\"]\n  \n  \n  zotero->bibtex; bibtex->markdown; bibtex->pandoc;\n  markdown->pandoc; style->pandoc;\n  pandoc->html; pandoc->doc; pandoc->latex->pdf;\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="class-notes" class="section level2">
 <h2><span class="header-section-number">4.2</span> Class Notes</h2>
@@ -420,10 +420,17 @@ in the literature.
 </div>
 <div id="pandoc-commands" class="section level2">
 <h2><span class="header-section-number">4.3</span> <code>pandoc</code> <em>Commands</em></h2>
-<p><em>NB:</em> On Windows, you may see a pop-up Windows from <code>MikTex</code> asking to download a missing package for <code>LaTeX</code>. This means that some package is missing and you need to download it (or several of them). Uncheck a birdie to install all necessary packages at once. After that everything should work.</p>
-<pre><code>pandoc -f markdown -t latex -o main.pdf --filter pandoc-citeproc main.md
+<p><strong>NB:</strong> On Windows, you may see a pop-up Windows from <code>MikTex</code> asking to download a missing package for <code>LaTeX</code>. This means that some package is missing and you need to download it (or several of them). Uncheck a birdie to install all necessary packages at once. After that everything should work.</p>
+<p>First try to convert to <code>docx</code> or <code>html</code>. These two formats do not require</p>
+<pre><code>pandoc -f markdown -t docx -o main.docx --filter pandoc-citeproc main.md
 pandoc -f markdown -t html -o main.html --filter pandoc-citeproc main.md
-pandoc -f markdown -t docx -o main.docx --filter pandoc-citeproc main.md</code></pre>
+pandoc -f markdown -t epub -o main.epub --filter pandoc-citeproc main.md
+pandoc -f markdown -t latex -o main.pdf --filter pandoc-citeproc main.md</code></pre>
+<p><strong>NB:</strong> it may so happen that your version of <code>pandoc</code> will complain about <code>--filter pandoc-citeproc</code>. If that happens, your commands should look like the following:</p>
+<pre><code>pandoc -f markdown -t docx -o main.docx --citeproc main.md
+pandoc -f markdown -t html -o main.html --citeproc main.md
+pandoc -f markdown -t epub -o main.epub --citeproc main.md
+pandoc -f markdown -t latex -o main.pdf --citeproc main.md</code></pre>
 <p><strong>Comment:</strong></p>
 <ul>
 <li><code>-f</code> means “convert <code>from</code> a specific format”.</li>
