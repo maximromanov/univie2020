@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>7 Lesson 6 | 070172-1 UE Methodological course - Introduction to DH: Tools &amp; Techniques (2020W) Memex Edition</title>
+  <meta name="description" content="This is a collection of relevant materials for the class ‘070172-1 UE Methodological course - Introduction to DH: Tools &amp; Techniques (2020W) Memex Edition’, offered at the University of Vienna and taught by Maxim G. Romanov" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="7 Lesson 6 | 070172-1 UE Methodological course - Introduction to DH: Tools &amp; Techniques (2020W) Memex Edition" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://maximromanov.github.io/univie2020/" />
+  
+  <meta property="og:description" content="This is a collection of relevant materials for the class ‘070172-1 UE Methodological course - Introduction to DH: Tools &amp; Techniques (2020W) Memex Edition’, offered at the University of Vienna and taught by Maxim G. Romanov" />
+  <meta name="github-repo" content="maximromanov/univie2020" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="7 Lesson 6 | 070172-1 UE Methodological course - Introduction to DH: Tools &amp; Techniques (2020W) Memex Edition" />
+  
+  <meta name="twitter:description" content="This is a collection of relevant materials for the class ‘070172-1 UE Methodological course - Introduction to DH: Tools &amp; Techniques (2020W) Memex Edition’, offered at the University of Vienna and taught by Maxim G. Romanov" />
+  
+
+<meta name="author" content="Maxim G. Romanov" />
+
+
+<meta name="date" content="2020-11-17" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="touch-icon.png" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<link rel="prev" href="lesson-06.html"/>
+<link rel="next" href="lesson-07.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/viz-1.8.2/viz.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/grViz-binding-1.0.6.1/grViz.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">070172 UE Methodological course - Introduction to DH: Tools & Techniques (2020W), <i>Memex Edition</i></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preliminaries</a></li>
+<li class="chapter" data-level="" data-path="memex-and-zettelkasten.html"><a href="memex-and-zettelkasten.html"><i class="fa fa-check"></i>Memex and Zettelkasten</a><ul>
+<li class="chapter" data-level="" data-path="memex-and-zettelkasten.html"><a href="memex-and-zettelkasten.html#on-memex"><i class="fa fa-check"></i>On Memex</a></li>
+<li class="chapter" data-level="" data-path="memex-and-zettelkasten.html"><a href="memex-and-zettelkasten.html#on-zettelkasten"><i class="fa fa-check"></i>On Zettelkasten</a><ul>
+<li><a href="memex-and-zettelkasten.html#niklas-luhmann-on-his-zettelkasten">Niklas Luhmann on his <em>Zettelkasten</em></a></li>
+<li><a href="memex-and-zettelkasten.html#others-on-luhmanns-zettelkasten">Others on Luhmann’s <em>Zettelkasten</em></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="work-plan.html"><a href="work-plan.html"><i class="fa fa-check"></i>Work Plan</a><ul>
+<li class="chapter" data-level="" data-path="work-plan.html"><a href="work-plan.html#memex-building-cycle"><i class="fa fa-check"></i>Memex-Building Cycle</a></li>
+<li class="chapter" data-level="" data-path="work-plan.html"><a href="work-plan.html#research-cycle"><i class="fa fa-check"></i>Research Cycle</a><ul>
+<li class="chapter" data-level="" data-path="work-plan.html"><a href="work-plan.html#building-trails"><i class="fa fa-check"></i>Building Trails</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="lesson-01.html"><a href="lesson-01.html"><i class="fa fa-check"></i><b>1</b> Lesson 01</a><ul>
+<li class="chapter" data-level="1.1" data-path="lesson-01.html"><a href="lesson-01.html#bibliography-managers"><i class="fa fa-check"></i><b>1.1</b> Bibliography Managers</a></li>
+<li class="chapter" data-level="1.2" data-path="lesson-01.html"><a href="lesson-01.html#zotero"><i class="fa fa-check"></i><b>1.2</b> Zotero</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="lesson-01.html"><a href="lesson-01.html#getting-started"><i class="fa fa-check"></i><b>1.2.1</b> Getting Started</a></li>
+<li class="chapter" data-level="1.2.2" data-path="lesson-01.html"><a href="lesson-01.html#main-functionality"><i class="fa fa-check"></i><b>1.2.2</b> Main Functionality</a></li>
+<li class="chapter" data-level="1.2.3" data-path="lesson-01.html"><a href="lesson-01.html#additional-functionality-plug-ins"><i class="fa fa-check"></i><b>1.2.3</b> Additional Functionality: Plug-Ins</a></li>
+<li class="chapter" data-level="1.2.4" data-path="lesson-01.html"><a href="lesson-01.html#zotfile"><i class="fa fa-check"></i><b>1.2.4</b> Zotfile</a></li>
+<li class="chapter" data-level="1.2.5" data-path="lesson-01.html"><a href="lesson-01.html#better-bibtex-for-zotero"><i class="fa fa-check"></i><b>1.2.5</b> Better BibTeX for Zotero</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="lesson-01.html"><a href="lesson-01.html#HWL01"><i class="fa fa-check"></i><b>1.3</b> Homework</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="lesson-02.html"><a href="lesson-02.html"><i class="fa fa-check"></i><b>2</b> Lesson 02</a><ul>
+<li class="chapter" data-level="2.1" data-path="lesson-02.html"><a href="lesson-02.html#command-line"><i class="fa fa-check"></i><b>2.1</b> Command Line</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="lesson-02.html"><a href="lesson-02.html#the-filesystem"><i class="fa fa-check"></i><b>2.1.1</b> The filesystem</a></li>
+<li class="chapter" data-level="2.1.2" data-path="lesson-02.html"><a href="lesson-02.html#getting-started-with-the-command-line"><i class="fa fa-check"></i><b>2.1.2</b> Getting started with the command line</a></li>
+<li class="chapter" data-level="2.1.3" data-path="lesson-02.html"><a href="lesson-02.html#components-of-the-command-line"><i class="fa fa-check"></i><b>2.1.3</b> Components of the command line</a></li>
+<li class="chapter" data-level="2.1.4" data-path="lesson-02.html"><a href="lesson-02.html#file-paths-and-path-notations"><i class="fa fa-check"></i><b>2.1.4</b> File paths and path notations</a></li>
+<li class="chapter" data-level="2.1.5" data-path="lesson-02.html"><a href="lesson-02.html#command-line-arguments"><i class="fa fa-check"></i><b>2.1.5</b> Command line arguments</a></li>
+<li class="chapter" data-level="2.1.6" data-path="lesson-02.html"><a href="lesson-02.html#more-commands"><i class="fa fa-check"></i><b>2.1.6</b> More commands</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="lesson-02.html"><a href="lesson-02.html#HWL02"><i class="fa fa-check"></i><b>2.2</b> Homework</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="lesson-03.html"><a href="lesson-03.html"><i class="fa fa-check"></i><b>3</b> Lesson 03</a><ul>
+<li class="chapter" data-level="3.1" data-path="lesson-03.html"><a href="lesson-03.html#version-control-and-collaboration"><i class="fa fa-check"></i><b>3.1</b> Version Control and Collaboration</a></li>
+<li class="chapter" data-level="3.2" data-path="lesson-03.html"><a href="lesson-03.html#setting-up-git"><i class="fa fa-check"></i><b>3.2</b> Setting-up <code>git</code></a></li>
+<li class="chapter" data-level="3.3" data-path="lesson-03.html"><a href="lesson-03.html#general-git-workflow"><i class="fa fa-check"></i><b>3.3</b> General <code>git</code> workflow</a></li>
+<li class="chapter" data-level="3.4" data-path="lesson-03.html"><a href="lesson-03.html#main-git-commands"><i class="fa fa-check"></i><b>3.4</b> Main <code>git</code> Commands</a></li>
+<li class="chapter" data-level="3.5" data-path="lesson-03.html"><a href="lesson-03.html#some-useful-command-line-commands-to-remember"><i class="fa fa-check"></i><b>3.5</b> Some useful command line commands to remember</a></li>
+<li class="chapter" data-level="3.6" data-path="lesson-03.html"><a href="lesson-03.html#practice"><i class="fa fa-check"></i><b>3.6</b> Practice</a></li>
+<li class="chapter" data-level="3.7" data-path="lesson-03.html"><a href="lesson-03.html#HWL03"><i class="fa fa-check"></i><b>3.7</b> Homework</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="lesson-04.html"><a href="lesson-04.html"><i class="fa fa-check"></i><b>4</b> Lesson 04</a><ul>
+<li class="chapter" data-level="4.1" data-path="lesson-04.html"><a href="lesson-04.html#sustainable-academic-writing-with-markdown-pandoc-and-the-tex-family"><i class="fa fa-check"></i><b>4.1</b> Sustainable Academic Writing with <code>markdown</code>, <code>pandoc</code>, and the <code>*TeX</code> family</a></li>
+<li class="chapter" data-level="4.2" data-path="lesson-04.html"><a href="lesson-04.html#class-notes"><i class="fa fa-check"></i><b>4.2</b> Class Notes</a></li>
+<li class="chapter" data-level="4.3" data-path="lesson-04.html"><a href="lesson-04.html#pandoc-commands"><i class="fa fa-check"></i><b>4.3</b> <code>pandoc</code> <em>Commands</em></a></li>
+<li class="chapter" data-level="4.4" data-path="lesson-04.html"><a href="lesson-04.html#writing-with-markdown-in-atom"><i class="fa fa-check"></i><b>4.4</b> Writing with markdown in Atom</a></li>
+<li class="chapter" data-level="4.5" data-path="lesson-04.html"><a href="lesson-04.html#reference-materials"><i class="fa fa-check"></i><b>4.5</b> Reference Materials:</a></li>
+<li class="chapter" data-level="4.6" data-path="lesson-04.html"><a href="lesson-04.html#HWL04"><i class="fa fa-check"></i><b>4.6</b> Homework</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="lesson-05.html"><a href="lesson-05.html"><i class="fa fa-check"></i><b>5</b> Lesson 05</a><ul>
+<li class="chapter" data-level="5.1" data-path="lesson-05.html"><a href="lesson-05.html#constructing-robust-searches"><i class="fa fa-check"></i><b>5.1</b> Constructing Robust Searches</a></li>
+<li class="chapter" data-level="5.2" data-path="lesson-05.html"><a href="lesson-05.html#regular-expressions"><i class="fa fa-check"></i><b>5.2</b> <code>regular expressions</code></a><ul>
+<li class="chapter" data-level="5.2.1" data-path="lesson-05.html"><a href="lesson-05.html#what-are-regular-expressions"><i class="fa fa-check"></i><b>5.2.1</b> What are <code>regular expressions</code>?**</a></li>
+<li class="chapter" data-level="5.2.2" data-path="lesson-05.html"><a href="lesson-05.html#what-would-we-use-regular-expressions-for"><i class="fa fa-check"></i><b>5.2.2</b> What would we use <code>regular Expressions</code> for?</a></li>
+<li class="chapter" data-level="5.2.3" data-path="lesson-05.html"><a href="lesson-05.html#the-basics"><i class="fa fa-check"></i><b>5.2.3</b> The Basics</a></li>
+<li class="chapter" data-level="5.2.4" data-path="lesson-05.html"><a href="lesson-05.html#characters-special-characters"><i class="fa fa-check"></i><b>5.2.4</b> Characters <em>&amp;</em> Special Characters</a></li>
+<li class="chapter" data-level="5.2.5" data-path="lesson-05.html"><a href="lesson-05.html#character-classes"><i class="fa fa-check"></i><b>5.2.5</b> Character Classes: <code>[]</code></a></li>
+<li class="chapter" data-level="5.2.6" data-path="lesson-05.html"><a href="lesson-05.html#ranges-within-classes"><i class="fa fa-check"></i><b>5.2.6</b> Ranges (within classes)</a></li>
+<li class="chapter" data-level="5.2.7" data-path="lesson-05.html"><a href="lesson-05.html#repeaters"><i class="fa fa-check"></i><b>5.2.7</b> Repeaters</a></li>
+<li class="chapter" data-level="5.2.8" data-path="lesson-05.html"><a href="lesson-05.html#lab-intro-in-the-practicum-file."><i class="fa fa-check"></i><b>5.2.8</b> Lab: <em>Intro</em> (in the <em>practicum file</em>).</a></li>
+<li class="chapter" data-level="5.2.9" data-path="lesson-05.html"><a href="lesson-05.html#anchoring"><i class="fa fa-check"></i><b>5.2.9</b> Anchoring</a></li>
+<li class="chapter" data-level="5.2.10" data-path="lesson-05.html"><a href="lesson-05.html#alternation-pipe"><i class="fa fa-check"></i><b>5.2.10</b> Alternation: “|” (<em>pipe</em>)</a></li>
+<li class="chapter" data-level="5.2.11" data-path="lesson-05.html"><a href="lesson-05.html#grouping"><i class="fa fa-check"></i><b>5.2.11</b> Grouping</a></li>
+<li class="chapter" data-level="5.2.12" data-path="lesson-05.html"><a href="lesson-05.html#lab-part-i-in-the-practicum-file."><i class="fa fa-check"></i><b>5.2.12</b> Lab: Part I (in the <em>practicum file</em>).</a></li>
+<li class="chapter" data-level="5.2.13" data-path="lesson-05.html"><a href="lesson-05.html#replacement"><i class="fa fa-check"></i><b>5.2.13</b> Replacement</a></li>
+<li class="chapter" data-level="5.2.14" data-path="lesson-05.html"><a href="lesson-05.html#capture"><i class="fa fa-check"></i><b>5.2.14</b> Capture</a></li>
+<li class="chapter" data-level="5.2.15" data-path="lesson-05.html"><a href="lesson-05.html#capture-reformat"><i class="fa fa-check"></i><b>5.2.15</b> Capture <em>&amp;</em> Reformat</a></li>
+<li class="chapter" data-level="5.2.16" data-path="lesson-05.html"><a href="lesson-05.html#lab-part-ii-in-the-practicum-file."><i class="fa fa-check"></i><b>5.2.16</b> Lab: Part II (in the <em>practicum file</em>).</a></li>
+<li class="chapter" data-level="5.2.17" data-path="lesson-05.html"><a href="lesson-05.html#to-keep-in-mind"><i class="fa fa-check"></i><b>5.2.17</b> <em>To keep in mind</em></a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="lesson-05.html"><a href="lesson-05.html#class-materials"><i class="fa fa-check"></i><b>5.3</b> Class materials</a></li>
+<li class="chapter" data-level="5.4" data-path="lesson-05.html"><a href="lesson-05.html#digital-materials"><i class="fa fa-check"></i><b>5.4</b> Digital materials</a></li>
+<li class="chapter" data-level="5.5" data-path="lesson-04.html"><a href="lesson-04.html#reference-materials"><i class="fa fa-check"></i><b>5.5</b> Reference Materials</a></li>
+<li class="chapter" data-level="5.6" data-path="lesson-05.html"><a href="lesson-05.html#HWL05"><i class="fa fa-check"></i><b>5.6</b> Homework</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="lesson-06.html"><a href="lesson-06.html"><i class="fa fa-check"></i><b>6</b> Lesson 06</a><ul>
+<li class="chapter" data-level="6.1" data-path="lesson-06.html"><a href="lesson-06.html#understanding-structured-data"><i class="fa fa-check"></i><b>6.1</b> Understanding Structured Data</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="lesson-06.html"><a href="lesson-06.html#xml-extensible-markup-language"><i class="fa fa-check"></i><b>6.1.1</b> XML (<em>Extensible Markup Language</em>)</a></li>
+<li class="chapter" data-level="6.1.2" data-path="lesson-06.html"><a href="lesson-06.html#csvtsv-comma-separated-values-tab-separated-values"><i class="fa fa-check"></i><b>6.1.2</b> CSV/TSV (<em>Comma-Separated Values</em>/ <em>Tab-Separated Values</em>)</a></li>
+<li class="chapter" data-level="6.1.3" data-path="lesson-06.html"><a href="lesson-06.html#json-javascript-object-notation"><i class="fa fa-check"></i><b>6.1.3</b> JSON (<em>JavaScript Object Notation</em>)</a></li>
+<li class="chapter" data-level="6.1.4" data-path="lesson-06.html"><a href="lesson-06.html#yml-or-yaml-yet-another-markup-language-yaml-aint-markup-language"><i class="fa fa-check"></i><b>6.1.4</b> YML or YAML (<em>Yet Another Markup Language</em> &gt; <em>YAML Ain’t Markup Language</em>)</a></li>
+<li class="chapter" data-level="6.1.5" data-path="lesson-06.html"><a href="lesson-06.html#bibtex-most-common-bibliographic-format"><i class="fa fa-check"></i><b>6.1.5</b> <code>BibTeX</code>: <em>most common bibliographic format</em></a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="lesson-06.html"><a href="lesson-06.html#larger-examples"><i class="fa fa-check"></i><b>6.2</b> Larger Examples</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="lesson-06.html"><a href="lesson-06.html#csv-tsv"><i class="fa fa-check"></i><b>6.2.1</b> <code>CSV</code> / <code>TSV</code></a></li>
+<li class="chapter" data-level="6.2.2" data-path="lesson-06.html"><a href="lesson-06.html#json"><i class="fa fa-check"></i><b>6.2.2</b> <code>JSON</code></a></li>
+<li class="chapter" data-level="6.2.3" data-path="lesson-06.html"><a href="lesson-06.html#ymlyaml"><i class="fa fa-check"></i><b>6.2.3</b> <code>YML</code>/<code>YAML</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="lesson-06.html"><a href="lesson-06.html#in-class-practice"><i class="fa fa-check"></i><b>6.3</b> In-Class Practice</a></li>
+<li class="chapter" data-level="6.4" data-path="lesson-06.html"><a href="lesson-06.html#HWL06"><i class="fa fa-check"></i><b>6.4</b> Homework</a></li>
+<li class="chapter" data-level="6.5" data-path="lesson-06.html"><a href="lesson-06.html#HWL06S"><i class="fa fa-check"></i><b>6.5</b> Homework Solution</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="lesson-06.html"><a href="lesson-06.html#pseudocode-solution"><i class="fa fa-check"></i><b>6.5.1</b> Pseudocode solution</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="lesson-6.html"><a href="lesson-6.html"><i class="fa fa-check"></i><b>7</b> Lesson 6</a><ul>
+<li class="chapter" data-level="7.0.1" data-path="lesson-6.html"><a href="lesson-6.html#scripts"><i class="fa fa-check"></i><b>7.0.1</b> Scripts</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="lesson-07.html"><a href="lesson-07.html"><i class="fa fa-check"></i><b>8</b> Lesson 07</a><ul>
+<li class="chapter" data-level="8.1" data-path="lesson-07.html"><a href="lesson-07.html#building-memex---step-1"><i class="fa fa-check"></i><b>8.1</b> Building Memex - Step 1</a></li>
+<li class="chapter" data-level="8.2" data-path="lesson-07.html"><a href="lesson-07.html#in-class"><i class="fa fa-check"></i><b>8.2</b> In-Class ()</a></li>
+<li class="chapter" data-level="8.3" data-path="lesson-06.html"><a href="lesson-06.html#HWL06"><i class="fa fa-check"></i><b>8.3</b> Homework</a></li>
+<li class="chapter" data-level="8.4" data-path="lesson-06.html"><a href="lesson-06.html#HWL06S"><i class="fa fa-check"></i><b>8.4</b> Homework Solution</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html"><i class="fa fa-check"></i>Syllabus</a><ul>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#course-details"><i class="fa fa-check"></i>Course Details</a></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#aims-contents-and-method-of-the-course"><i class="fa fa-check"></i>Aims, Contents and Method of the Course</a></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#course-evaluation"><i class="fa fa-check"></i>Course Evaluation</a></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#class-participation"><i class="fa fa-check"></i>Class Participation</a></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#homework-assignments"><i class="fa fa-check"></i>Homework Assignments</a></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#final-project"><i class="fa fa-check"></i>Final Project</a></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#study-materials"><i class="fa fa-check"></i>Study materials</a></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#software-tools-technologies"><i class="fa fa-check"></i>Software, Tools, &amp; Technologies</a></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#schedule"><i class="fa fa-check"></i>Schedule</a></li>
+<li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#lesson-topics"><i class="fa fa-check"></i>Lesson Topics</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">070172-1 UE Methodological course - Introduction to DH: Tools &amp; Techniques (2020W) <code>Memex Edition</code></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="lesson-6" class="section level1">
+<h1><span class="header-section-number">7</span> Lesson 6</h1>
+<ol start="0" style="list-style-type: decimal">
+<li><p>look at the file</p></li>
+<li><p>create a holder for our data, which will be <code>dictionary</code> (dic, list, etc.)</p></li>
+<li>read as one big string</li>
+<li>split into records using <code>\n@</code>
+<ul>
+<li>we will get a list of strings</li>
+</ul></li>
+<li>loop through all the records:
+NB: each records is a string that needs to be converted into something else.
+<ul>
+<li>we need to split each record using <code>,\n</code></li>
+<li>now we loop through the list of “key-value” pairs</li>
+<li>type&amp;citationkey element:
+<ul>
+<li>grab list element with index 0 (<code>citationkey = record[0]</code>)</li>
+<li>split the element on <code>{</code>
+<ul>
+<li>recordType = element[0]</li>
+<li>citationKey = element[1]</li>
+</ul></li>
+</ul></li>
+<li>add a record into our <code>dictionary</code> using citationKey as a key value</li>
+<li>add recordType into the newly created record</li>
+<li>process the rest of the record:
+<ul>
+<li>loop through the record, starting with 1:
+<ul>
+<li><code>for r in record[1:]:</code></li>
+</ul></li>
+<li>split every element on <code>=</code>
+<ul>
+<li>key = element[0].strip()</li>
+<li>value = element[1].strip()</li>
+<li>add our key-value pair into the <code>dictionary</code></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ol>
+<p>Next part: save <code>dictionary</code> into: CSV, JSON, YAML</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb39-1" title="1">conversionDic <span class="op">=</span> {</a>
+<a class="sourceLine" id="cb39-2" title="2">	<span class="st">&#39;year&#39;</span> : <span class="st">&#39;date&#39;</span>,</a>
+<a class="sourceLine" id="cb39-3" title="3">	<span class="st">&#39;date&#39;</span> : <span class="st">&#39;date&#39;</span>,</a>
+<a class="sourceLine" id="cb39-4" title="4">	...</a>
+<a class="sourceLine" id="cb39-5" title="5">}</a></code></pre></div>
+<div id="scripts" class="section level3">
+<h3><span class="header-section-number">7.0.1</span> Scripts</h3>
+<p><strong>Script 1: analyzing bibTex data (<code>z_1_preliminary.py</code>)</strong></p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode py"><code class="sourceCode python"><a class="sourceLine" id="cb40-1" title="1"><span class="im">import</span> os, yaml</a>
+<a class="sourceLine" id="cb40-2" title="2"></a>
+<a class="sourceLine" id="cb40-3" title="3"><span class="co">###########################################################</span></a>
+<a class="sourceLine" id="cb40-4" title="4"><span class="co"># VARIABLES ###############################################</span></a>
+<a class="sourceLine" id="cb40-5" title="5"><span class="co">###########################################################</span></a>
+<a class="sourceLine" id="cb40-6" title="6"></a>
+<a class="sourceLine" id="cb40-7" title="7">settingsFile <span class="op">=</span> <span class="st">&quot;z_config.yml&quot;</span></a>
+<a class="sourceLine" id="cb40-8" title="8"><span class="bu">vars</span> <span class="op">=</span> yaml.load(<span class="bu">open</span>(settingsFile))</a>
+<a class="sourceLine" id="cb40-9" title="9"></a>
+<a class="sourceLine" id="cb40-10" title="10"><span class="co">###########################################################</span></a>
+<a class="sourceLine" id="cb40-11" title="11"><span class="co"># FUNCTIONS ###############################################</span></a>
+<a class="sourceLine" id="cb40-12" title="12"><span class="co">###########################################################</span></a>
+<a class="sourceLine" id="cb40-13" title="13"></a>
+<a class="sourceLine" id="cb40-14" title="14"><span class="co"># analyze bibTeX data; identify what needs to be fixed</span></a>
+<a class="sourceLine" id="cb40-15" title="15"></a>
+<a class="sourceLine" id="cb40-16" title="16"><span class="kw">def</span> bibAnalyze(bibTexFile):</a>
+<a class="sourceLine" id="cb40-17" title="17"></a>
+<a class="sourceLine" id="cb40-18" title="18">    tempDic <span class="op">=</span> {}</a>
+<a class="sourceLine" id="cb40-19" title="19"></a>
+<a class="sourceLine" id="cb40-20" title="20">    <span class="cf">with</span> <span class="bu">open</span>(bibTexFile, <span class="st">&quot;r&quot;</span>, encoding<span class="op">=</span><span class="st">&quot;utf8&quot;</span>) <span class="im">as</span> f1:</a>
+<a class="sourceLine" id="cb40-21" title="21">        records <span class="op">=</span> f1.read()</a>
+<a class="sourceLine" id="cb40-22" title="22">        records <span class="op">=</span> records.split(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">@&quot;</span>)</a>
+<a class="sourceLine" id="cb40-23" title="23"></a>
+<a class="sourceLine" id="cb40-24" title="24">        <span class="cf">for</span> record <span class="kw">in</span> records[<span class="dv">1</span>:]:</a>
+<a class="sourceLine" id="cb40-25" title="25">            <span class="co"># let process ONLY those records that have PDFs</span></a>
+<a class="sourceLine" id="cb40-26" title="26">            <span class="cf">if</span> <span class="st">&quot;.pdf&quot;</span> <span class="kw">in</span> record.lower():</a>
+<a class="sourceLine" id="cb40-27" title="27">                record <span class="op">=</span> record.strip()</a>
+<a class="sourceLine" id="cb40-28" title="28">                record <span class="op">=</span> record.split(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)[:<span class="op">-</span><span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb40-29" title="29"></a>
+<a class="sourceLine" id="cb40-30" title="30">                <span class="cf">for</span> r <span class="kw">in</span> record[<span class="dv">1</span>:]:</a>
+<a class="sourceLine" id="cb40-31" title="31">                    r <span class="op">=</span> r.split(<span class="st">&quot;=&quot;</span>)[<span class="dv">0</span>].strip()</a>
+<a class="sourceLine" id="cb40-32" title="32"></a>
+<a class="sourceLine" id="cb40-33" title="33">                    <span class="cf">if</span> r <span class="kw">in</span> tempDic:</a>
+<a class="sourceLine" id="cb40-34" title="34">                        tempDic[r] <span class="op">+=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb40-35" title="35">                    <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb40-36" title="36">                        tempDic[r] <span class="op">=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb40-37" title="37"></a>
+<a class="sourceLine" id="cb40-38" title="38">    results <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb40-39" title="39">    <span class="cf">for</span> k,v <span class="kw">in</span> tempDic.items():</a>
+<a class="sourceLine" id="cb40-40" title="40">        result <span class="op">=</span> <span class="st">&quot;</span><span class="sc">%010d</span><span class="ch">\t</span><span class="sc">%s</span><span class="st">&quot;</span> <span class="op">%</span> (v, k)</a>
+<a class="sourceLine" id="cb40-41" title="41">        results.append(result)</a>
+<a class="sourceLine" id="cb40-42" title="42"></a>
+<a class="sourceLine" id="cb40-43" title="43">    results <span class="op">=</span> <span class="bu">sorted</span>(results, reverse<span class="op">=</span><span class="va">True</span>)</a>
+<a class="sourceLine" id="cb40-44" title="44">    results <span class="op">=</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>.join(results)</a>
+<a class="sourceLine" id="cb40-45" title="45"></a>
+<a class="sourceLine" id="cb40-46" title="46">    <span class="cf">with</span> <span class="bu">open</span>(<span class="st">&quot;bibtex_analysis.txt&quot;</span>, <span class="st">&quot;w&quot;</span>, encoding<span class="op">=</span><span class="st">&quot;utf8&quot;</span>) <span class="im">as</span> f9:</a>
+<a class="sourceLine" id="cb40-47" title="47">        f9.write(results)</a>
+<a class="sourceLine" id="cb40-48" title="48"></a>
+<a class="sourceLine" id="cb40-49" title="49">bibAnalyze(<span class="bu">vars</span>[<span class="st">&#39;bib_all&#39;</span>])</a></code></pre></div>
+<p>This script will create the file <code>bibtex_analysis.txt</code>, which will be a frequency list of keys from all <code>bibTeX</code> records. We would want to convert this frequency list into a YML file which we can then load with <code>yaml</code> library (make sure to install it!). Loading yml data into a python dictionary is as easy as: <code>dictionary = yaml.load(open(fileNameYml))</code>.</p>
+<p>You can convert the frequency list into a proper yml file using regular expressions:</p>
+<p><img src="images/reformatToYML.gif" /></p>
+<p><strong>Script 2: loading bibTeX data and converting to other formats (<code>z_2_conversion_simple.py</code>)</strong></p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb41-1" title="1"></a>
+<a class="sourceLine" id="cb41-2" title="2"><span class="im">import</span> re</a>
+<a class="sourceLine" id="cb41-3" title="3"><span class="im">import</span> yaml</a>
+<a class="sourceLine" id="cb41-4" title="4"></a>
+<a class="sourceLine" id="cb41-5" title="5"><span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb41-6" title="6"><span class="co">1. load bibtex file</span></a>
+<a class="sourceLine" id="cb41-7" title="7"><span class="co">    - bibliography should be curated in Zotero (one can program cleaning procedures into the script, but this is not as reliable);</span></a>
+<a class="sourceLine" id="cb41-8" title="8"><span class="co">    - loading bibtex data, keep only those records that have PDFs;</span></a>
+<a class="sourceLine" id="cb41-9" title="9"><span class="co">    - some processing might be necessary (like picking one file out of two and more)</span></a>
+<a class="sourceLine" id="cb41-10" title="10"><span class="co">2. convert into other formats</span></a>
+<a class="sourceLine" id="cb41-11" title="11"><span class="co">    - csv</span></a>
+<a class="sourceLine" id="cb41-12" title="12"><span class="co">    - json</span></a>
+<a class="sourceLine" id="cb41-13" title="13"><span class="co">    - yml</span></a>
+<a class="sourceLine" id="cb41-14" title="14"><span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb41-15" title="15"></a>
+<a class="sourceLine" id="cb41-16" title="16"><span class="co">###########################################################</span></a>
+<a class="sourceLine" id="cb41-17" title="17"><span class="co"># VARIABLES ###############################################</span></a>
+<a class="sourceLine" id="cb41-18" title="18"><span class="co">###########################################################</span></a>
+<a class="sourceLine" id="cb41-19" title="19"></a>
+<a class="sourceLine" id="cb41-20" title="20">settingsFile <span class="op">=</span> <span class="st">&quot;z_config.yml&quot;</span></a>
+<a class="sourceLine" id="cb41-21" title="21">settings <span class="op">=</span> yaml.load(<span class="bu">open</span>(settingsFile))</a>
+<a class="sourceLine" id="cb41-22" title="22">bibKeys <span class="op">=</span> yaml.load(<span class="bu">open</span>(<span class="st">&quot;zotero_biblatex_keys.yml&quot;</span>))</a>
+<a class="sourceLine" id="cb41-23" title="23"></a>
+<a class="sourceLine" id="cb41-24" title="24"><span class="co">###########################################################</span></a>
+<a class="sourceLine" id="cb41-25" title="25"><span class="co"># FUNCTIONS ###############################################</span></a>
+<a class="sourceLine" id="cb41-26" title="26"><span class="co">###########################################################</span></a>
+<a class="sourceLine" id="cb41-27" title="27"></a>
+<a class="sourceLine" id="cb41-28" title="28"><span class="co"># load bibTex Data into a dictionary</span></a>
+<a class="sourceLine" id="cb41-29" title="29"><span class="kw">def</span> bibLoad(bibTexFile):</a>
+<a class="sourceLine" id="cb41-30" title="30"></a>
+<a class="sourceLine" id="cb41-31" title="31">    bibDic <span class="op">=</span> {}</a>
+<a class="sourceLine" id="cb41-32" title="32"></a>
+<a class="sourceLine" id="cb41-33" title="33">    <span class="cf">with</span> <span class="bu">open</span>(bibTexFile, <span class="st">&quot;r&quot;</span>, encoding<span class="op">=</span><span class="st">&quot;utf8&quot;</span>) <span class="im">as</span> f1:</a>
+<a class="sourceLine" id="cb41-34" title="34">        records <span class="op">=</span> f1.read().split(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">@&quot;</span>)</a>
+<a class="sourceLine" id="cb41-35" title="35"></a>
+<a class="sourceLine" id="cb41-36" title="36">        <span class="cf">for</span> record <span class="kw">in</span> records[<span class="dv">1</span>:]:</a>
+<a class="sourceLine" id="cb41-37" title="37">            <span class="co"># let process ONLY those records that have PDFs</span></a>
+<a class="sourceLine" id="cb41-38" title="38">            <span class="cf">if</span> <span class="st">&quot;.pdf&quot;</span> <span class="kw">in</span> record.lower():</a>
+<a class="sourceLine" id="cb41-39" title="39"></a>
+<a class="sourceLine" id="cb41-40" title="40">                record <span class="op">=</span> record.strip().split(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)[:<span class="op">-</span><span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb41-41" title="41"></a>
+<a class="sourceLine" id="cb41-42" title="42">                rType <span class="op">=</span> record[<span class="dv">0</span>].split(<span class="st">&quot;{&quot;</span>)[<span class="dv">0</span>].strip()</a>
+<a class="sourceLine" id="cb41-43" title="43">                rCite <span class="op">=</span> record[<span class="dv">0</span>].split(<span class="st">&quot;{&quot;</span>)[<span class="dv">1</span>].strip().replace(<span class="st">&quot;,&quot;</span>, <span class="st">&quot;&quot;</span>)</a>
+<a class="sourceLine" id="cb41-44" title="44"></a>
+<a class="sourceLine" id="cb41-45" title="45">                bibDic[rCite] <span class="op">=</span> {}</a>
+<a class="sourceLine" id="cb41-46" title="46">                bibDic[rCite][<span class="st">&quot;rCite&quot;</span>] <span class="op">=</span> rCite</a>
+<a class="sourceLine" id="cb41-47" title="47">                bibDic[rCite][<span class="st">&quot;rType&quot;</span>] <span class="op">=</span> rType</a>
+<a class="sourceLine" id="cb41-48" title="48"></a>
+<a class="sourceLine" id="cb41-49" title="49">                <span class="cf">for</span> r <span class="kw">in</span> record[<span class="dv">1</span>:]:</a>
+<a class="sourceLine" id="cb41-50" title="50">                    key <span class="op">=</span> r.split(<span class="st">&quot;=&quot;</span>)[<span class="dv">0</span>].strip()</a>
+<a class="sourceLine" id="cb41-51" title="51">                    val <span class="op">=</span> r.split(<span class="st">&quot;=&quot;</span>)[<span class="dv">1</span>].strip()</a>
+<a class="sourceLine" id="cb41-52" title="52">                    val <span class="op">=</span> re.sub(<span class="st">&quot;^\{|\},?&quot;</span>, <span class="st">&quot;&quot;</span>, val)</a>
+<a class="sourceLine" id="cb41-53" title="53"></a>
+<a class="sourceLine" id="cb41-54" title="54">                    fixedKey <span class="op">=</span> bibKeys[key]</a>
+<a class="sourceLine" id="cb41-55" title="55"></a>
+<a class="sourceLine" id="cb41-56" title="56">                    bibDic[rCite][fixedKey] <span class="op">=</span> val</a>
+<a class="sourceLine" id="cb41-57" title="57"></a>
+<a class="sourceLine" id="cb41-58" title="58"></a>
+<a class="sourceLine" id="cb41-59" title="59">    <span class="bu">print</span>(<span class="st">&quot;=&quot;</span><span class="op">*</span><span class="dv">80</span>)</a>
+<a class="sourceLine" id="cb41-60" title="60">    <span class="bu">print</span>(<span class="st">&quot;NUMBER OF RECORDS IN BIBLIGORAPHY: </span><span class="sc">%d</span><span class="st">&quot;</span> <span class="op">%</span> <span class="bu">len</span>(bibDic))</a>
+<a class="sourceLine" id="cb41-61" title="61">    <span class="bu">print</span>(<span class="st">&quot;=&quot;</span><span class="op">*</span><span class="dv">80</span>)</a>
+<a class="sourceLine" id="cb41-62" title="62">    <span class="cf">return</span>(bibDic)</a>
+<a class="sourceLine" id="cb41-63" title="63"></a>
+<a class="sourceLine" id="cb41-64" title="64"><span class="co">###########################################################</span></a>
+<a class="sourceLine" id="cb41-65" title="65"><span class="co"># CONVERSION FUNCTIONS ####################################</span></a>
+<a class="sourceLine" id="cb41-66" title="66"><span class="co">###########################################################</span></a>
+<a class="sourceLine" id="cb41-67" title="67"></a>
+<a class="sourceLine" id="cb41-68" title="68"><span class="im">import</span> json</a>
+<a class="sourceLine" id="cb41-69" title="69"><span class="kw">def</span> convertToJSON(bibTexFile):</a>
+<a class="sourceLine" id="cb41-70" title="70">    data <span class="op">=</span> bibLoad(bibTexFile)</a>
+<a class="sourceLine" id="cb41-71" title="71">    <span class="cf">with</span> <span class="bu">open</span>(bibTexFile.replace(<span class="st">&quot;.bib&quot;</span>, <span class="st">&quot;.json&quot;</span>), <span class="st">&#39;w&#39;</span>, encoding<span class="op">=</span><span class="st">&#39;utf8&#39;</span>) <span class="im">as</span> f9:</a>
+<a class="sourceLine" id="cb41-72" title="72">        json.dump(data, f9, sort_keys<span class="op">=</span><span class="va">True</span>, indent<span class="op">=</span><span class="dv">4</span>, ensure_ascii<span class="op">=</span><span class="va">False</span>)</a>
+<a class="sourceLine" id="cb41-73" title="73"></a>
+<a class="sourceLine" id="cb41-74" title="74"></a>
+<a class="sourceLine" id="cb41-75" title="75"><span class="im">import</span> yaml</a>
+<a class="sourceLine" id="cb41-76" title="76"><span class="kw">def</span> convertToYAML(bibTexFile):</a>
+<a class="sourceLine" id="cb41-77" title="77">    data <span class="op">=</span> bibLoad(bibTexFile)</a>
+<a class="sourceLine" id="cb41-78" title="78">    <span class="cf">with</span> <span class="bu">open</span>(bibTexFile.replace(<span class="st">&quot;.bib&quot;</span>, <span class="st">&quot;.yaml&quot;</span>), <span class="st">&#39;w&#39;</span>, encoding<span class="op">=</span><span class="st">&#39;utf8&#39;</span>) <span class="im">as</span> f9:</a>
+<a class="sourceLine" id="cb41-79" title="79">        yaml.dump(data, f9)</a>
+<a class="sourceLine" id="cb41-80" title="80"></a>
+<a class="sourceLine" id="cb41-81" title="81"><span class="co"># CSV is the trickest because bibTeX is not symmetrical</span></a>
+<a class="sourceLine" id="cb41-82" title="82"><span class="kw">def</span> convertToCSV(bibTexFile):</a>
+<a class="sourceLine" id="cb41-83" title="83">    data <span class="op">=</span> bibLoad(bibTexFile)</a>
+<a class="sourceLine" id="cb41-84" title="84">    <span class="co"># let&#39;s handpick fields that we want to save: citeKey, type, author, title, date</span></a>
+<a class="sourceLine" id="cb41-85" title="85">    headerList <span class="op">=</span> [<span class="st">&#39;citeKey&#39;</span>, <span class="st">&#39;type&#39;</span>, <span class="st">&#39;author&#39;</span>, <span class="st">&#39;title&#39;</span>, <span class="st">&#39;date&#39;</span>] </a>
+<a class="sourceLine" id="cb41-86" title="86">    header <span class="op">=</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>.join(headerList)</a>
+<a class="sourceLine" id="cb41-87" title="87"></a>
+<a class="sourceLine" id="cb41-88" title="88">    dataNew <span class="op">=</span> [header]</a>
+<a class="sourceLine" id="cb41-89" title="89"></a>
+<a class="sourceLine" id="cb41-90" title="90">    <span class="cf">for</span> k,v <span class="kw">in</span> data.items():</a>
+<a class="sourceLine" id="cb41-91" title="91">        citeKey <span class="op">=</span> k</a>
+<a class="sourceLine" id="cb41-92" title="92"></a>
+<a class="sourceLine" id="cb41-93" title="93">        <span class="cf">if</span> <span class="st">&#39;rType&#39;</span> <span class="kw">in</span> v:</a>
+<a class="sourceLine" id="cb41-94" title="94">            rType <span class="op">=</span> v[<span class="st">&#39;rType&#39;</span>]</a>
+<a class="sourceLine" id="cb41-95" title="95">        <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb41-96" title="96">            rType <span class="op">=</span> <span class="st">&quot;NA&quot;</span></a>
+<a class="sourceLine" id="cb41-97" title="97"></a>
+<a class="sourceLine" id="cb41-98" title="98">        <span class="cf">if</span> <span class="st">&#39;author&#39;</span> <span class="kw">in</span> v:</a>
+<a class="sourceLine" id="cb41-99" title="99">            author <span class="op">=</span> v[<span class="st">&#39;author&#39;</span>]</a>
+<a class="sourceLine" id="cb41-100" title="100">        <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb41-101" title="101">            author <span class="op">=</span> <span class="st">&quot;NA&quot;</span></a>
+<a class="sourceLine" id="cb41-102" title="102"></a>
+<a class="sourceLine" id="cb41-103" title="103">        <span class="cf">if</span> <span class="st">&#39;title&#39;</span> <span class="kw">in</span> v:</a>
+<a class="sourceLine" id="cb41-104" title="104">            title <span class="op">=</span> v[<span class="st">&#39;title&#39;</span>]</a>
+<a class="sourceLine" id="cb41-105" title="105">        <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb41-106" title="106">            title <span class="op">=</span> <span class="st">&quot;NA&quot;</span></a>
+<a class="sourceLine" id="cb41-107" title="107"></a>
+<a class="sourceLine" id="cb41-108" title="108">        <span class="cf">if</span> <span class="st">&#39;date&#39;</span> <span class="kw">in</span> v:</a>
+<a class="sourceLine" id="cb41-109" title="109">            date <span class="op">=</span> v[<span class="st">&#39;date&#39;</span>]</a>
+<a class="sourceLine" id="cb41-110" title="110">        <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb41-111" title="111">            date <span class="op">=</span> <span class="st">&quot;NA&quot;</span></a>
+<a class="sourceLine" id="cb41-112" title="112"></a>
+<a class="sourceLine" id="cb41-113" title="113">        tempVal <span class="op">=</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>.join([citeKey, rType, author, title, date])</a>
+<a class="sourceLine" id="cb41-114" title="114">        dataNew.append(tempVal)</a>
+<a class="sourceLine" id="cb41-115" title="115"></a>
+<a class="sourceLine" id="cb41-116" title="116">    finalData <span class="op">=</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>.join(dataNew)</a>
+<a class="sourceLine" id="cb41-117" title="117">    <span class="cf">with</span> <span class="bu">open</span>(bibTexFile.replace(<span class="st">&quot;.bib&quot;</span>, <span class="st">&quot;.csv&quot;</span>), <span class="st">&#39;w&#39;</span>, encoding<span class="op">=</span><span class="st">&#39;utf8&#39;</span>) <span class="im">as</span> f9:</a>
+<a class="sourceLine" id="cb41-118" title="118">        f9.write(finalData)</a>
+<a class="sourceLine" id="cb41-119" title="119"></a>
+<a class="sourceLine" id="cb41-120" title="120"></a>
+<a class="sourceLine" id="cb41-121" title="121"><span class="co">###########################################################</span></a>
+<a class="sourceLine" id="cb41-122" title="122"><span class="co"># RUN EVERYTHING ##########################################</span></a>
+<a class="sourceLine" id="cb41-123" title="123"><span class="co">###########################################################</span></a>
+<a class="sourceLine" id="cb41-124" title="124"></a>
+<a class="sourceLine" id="cb41-125" title="125"><span class="bu">print</span>(settings[<span class="st">&quot;bib_all&quot;</span>])</a>
+<a class="sourceLine" id="cb41-126" title="126"></a>
+<a class="sourceLine" id="cb41-127" title="127"><span class="co">#convertToJSON(settings[&quot;bib_all&quot;])</span></a>
+<a class="sourceLine" id="cb41-128" title="128"><span class="co">#convertToYAML(settings[&quot;bib_all&quot;])</span></a>
+<a class="sourceLine" id="cb41-129" title="129"><span class="co">#convertToCSV(settings[&quot;bib_all&quot;])</span></a>
+<a class="sourceLine" id="cb41-130" title="130"></a>
+<a class="sourceLine" id="cb41-131" title="131"></a>
+<a class="sourceLine" id="cb41-132" title="132"><span class="bu">print</span>(<span class="st">&quot;Done!&quot;</span>)</a></code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="lesson-06.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="lesson-07.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "github"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "serif",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["TNT2020W.epub"],
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"search": true,
+"info": true
+});
+});
+</script>
+
+</body>
+
+</html>
