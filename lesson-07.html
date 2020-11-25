@@ -24,7 +24,7 @@
 <meta name="author" content="Maxim G. Romanov" />
 
 
-<meta name="date" content="2020-11-17" />
+<meta name="date" content="2020-11-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   <link rel="apple-touch-icon-precomposed" sizes="120x120" href="touch-icon.png" />
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <link rel="prev" href="lesson-06.html"/>
-<link rel="next" href="syllabus.html"/>
+<link rel="next" href="lesson-08.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -240,7 +240,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.1.2" data-path="lesson-07.html"><a href="lesson-07.html#code-snippets"><i class="fa fa-check"></i><b>7.1.2</b> Code snippets</a></li>
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="lesson-06.html"><a href="lesson-06.html#HWL06"><i class="fa fa-check"></i><b>7.2</b> Homework</a></li>
-<li class="chapter" data-level="7.3" data-path="lesson-07.html"><a href="lesson-07.html#HWL07S"><i class="fa fa-check"></i><b>7.3</b> Homework Solution</a></li>
+<li class="chapter" data-level="7.3" data-path="lesson-07.html"><a href="lesson-07.html#HWL07S"><i class="fa fa-check"></i><b>7.3</b> Homework Solution</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="lesson-07.html"><a href="lesson-07.html#pseudocode-1"><i class="fa fa-check"></i><b>7.3.1</b> Pseudocode</a></li>
+<li class="chapter" data-level="7.3.2" data-path="lesson-07.html"><a href="lesson-07.html#note-on-folderfile-organization"><i class="fa fa-check"></i><b>7.3.2</b> Note on Folder/File Organization</a></li>
+<li class="chapter" data-level="7.3.3" data-path="lesson-07.html"><a href="lesson-07.html#script-1_build_structure.py"><i class="fa fa-check"></i><b>7.3.3</b> Script (<code>1_build_structure.py</code>)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="lesson-08.html"><a href="lesson-08.html"><i class="fa fa-check"></i><b>8</b> Lesson 08</a><ul>
+<li class="chapter" data-level="8.1" data-path="lesson-08.html"><a href="lesson-08.html#building-memex---step-2"><i class="fa fa-check"></i><b>8.1</b> Building Memex - Step 2</a></li>
+<li class="chapter" data-level="8.2" data-path="lesson-08.html"><a href="lesson-08.html#ocr-software-tesseract"><i class="fa fa-check"></i><b>8.2</b> OCR software: Tesseract</a></li>
+<li class="chapter" data-level="8.3" data-path="lesson-08.html"><a href="lesson-08.html#task-general-map-pseudocode"><i class="fa fa-check"></i><b>8.3</b> Task: General Map Pseudocode</a></li>
+<li class="chapter" data-level="8.4" data-path="lesson-08.html"><a href="lesson-08.html#code-snippets-functions"><i class="fa fa-check"></i><b>8.4</b> Code snippets &amp; functions</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="lesson-08.html"><a href="lesson-08.html#new-libraries"><i class="fa fa-check"></i><b>8.4.1</b> New libraries</a></li>
+<li class="chapter" data-level="8.4.2" data-path="lesson-08.html"><a href="lesson-08.html#code-reuse"><i class="fa fa-check"></i><b>8.4.2</b> Code Reuse</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="lesson-08.html"><a href="lesson-08.html#clean-temporary-copy-of-a-pdf"><i class="fa fa-check"></i><b>8.5</b> Clean Temporary Copy of a PDF</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="lesson-08.html"><a href="lesson-08.html#ocr-ing-pdf"><i class="fa fa-check"></i><b>8.5.1</b> OCR-ing PDF</a></li>
+<li class="chapter" data-level="8.5.2" data-path="lesson-08.html"><a href="lesson-08.html#missing-functions"><i class="fa fa-check"></i><b>8.5.2</b> Missing functions</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="lesson-08.html"><a href="lesson-08.html#one-more-note-on-ocr"><i class="fa fa-check"></i><b>8.6</b> One more note on OCR</a></li>
+<li class="chapter" data-level="8.7" data-path="lesson-08.html"><a href="lesson-08.html#HWL08"><i class="fa fa-check"></i><b>8.7</b> Homework</a></li>
+<li class="chapter" data-level="8.8" data-path="lesson-08.html"><a href="lesson-08.html#HWL08S"><i class="fa fa-check"></i><b>8.8</b> Homework Solution</a></li>
+<li class="chapter" data-level="8.9" data-path="lesson-08.html"><a href="lesson-08.html#tesseract-language-codes"><i class="fa fa-check"></i><b>8.9</b> Tesseract Language Codes</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html"><i class="fa fa-check"></i>Syllabus</a><ul>
 <li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#course-details"><i class="fa fa-check"></i>Course Details</a></li>
@@ -349,8 +370,206 @@ subSubFolder = <code>key.lower()[:2]</code>; subSubSubFolder = <code>key</code>;
 </div>
 <div id="HWL07S" class="section level2">
 <h2><span class="header-section-number">7.3</span> Homework Solution</h2>
-<p><em>… to be added later …</em></p>
+<div id="pseudocode-1" class="section level3">
+<h3><span class="header-section-number">7.3.1</span> Pseudocode</h3>
+<ul>
+<li>creating the overall structure for our MEMEX on HDD
+<ol style="list-style-type: decimal">
+<li>using out bibliographical data, we algorithmically generate paths for each publication</li>
+<li>we create those paths</li>
+<li>we copy relevant data into those paths:
+<ol style="list-style-type: decimal">
+<li>bibliographical record (bib);</li>
+<li>PDF files</li>
+</ol></li>
+</ol></li>
+</ul>
+<p>Let’s break it down into smaller steps:</p>
+<ul>
+<li>first of all, it will actually be easier of take a look at this task from another perspective.
+<ul>
+<li>we should start from a single publication, or, better, a single bibliographical record.</li>
+<li>after we figure out how to process a single publication, we will just need to figure out how to process all of them</li>
+</ul></li>
+<li>so, let’s start with a single bib record:
+<ul>
+<li>(we have written a function before that creates a dictionary from every bib record (let’s call it <strong>loadBib()</strong>); so let our function take such a single-record dictionary as its argument);</li>
+<li>what will we need from our function (let’s call it <strong>processBibRecord()</strong>)? it must do the following:
+<ul>
+<li>to generate a unique path for the publication</li>
+<li>check if that path exists, if not: create it</li>
+<li>save bib record into that folder</li>
+<li>copy PDF to that folder</li>
+</ul></li>
+<li>what do we need to consider:
+<ul>
+<li>we need a simple and transparent way to algorithmically generate all this data, which will ensure easy access, browsability, and overall transparency of our approach. In order to achieve it, we can use <em>a single</em> element from each record to generate all necessary paths and filenames. Namely, the <em>citation key</em>.</li>
+</ul></li>
+<li><strong>path:</strong> our path will be a concatenation of the path to memex (for example, <code>./MEMEX_SANDBOX/data/</code>) and a subpath unique to each publication, which we can generate from the citation key.
+<ul>
+<li>for example, if the citation key is <code>SavantMuslims2017</code>, the publication path should be <code>/s/sa/SavantMuslims2017/</code></li>
+<li>the concatenated path thus will be: <code>./MEMEX_SANDBOX/data/s/sa/SavantMuslims2017/</code></li>
+<li><strong>NB:</strong> it may be a good idea to have a small function that takes paths to memex and the citation key as its arguments and returns the final path (let’s call it <strong>generatePublPath()</strong>).</li>
+</ul></li>
+<li>now, that we have <strong>the path</strong>, we can check whether it exists, and, if not, create it</li>
+<li>now, we have our path and the actual folder on HDD, it is easy-peasy-lemon-squeezy to save a bibliographical record and a PDF into that folder.
+<ul>
+<li>for the same considerations of machine-readability, we should use use the citation key to name our files: for example, <code>SavantMuslims2017.bib</code> for our bibliographical record, and <code>SavantMuslims2017.pdf</code> for our PDF file.</li>
+</ul></li>
+</ul></li>
+<li>now, we have a function that does all that we need from a single record, we can write another function (let’s call it <strong>processAllRecords()</strong>) that will
+<ul>
+<li>take the large bibliographical dictionary generated with <strong>loadBib()</strong> as its argument</li>
+<li>loops through this dictionary, and processes each record with <strong>processBibRecord()</strong>.</li>
+</ul></li>
+</ul>
+</div>
+<div id="note-on-folderfile-organization" class="section level3">
+<h3><span class="header-section-number">7.3.2</span> Note on Folder/File Organization</h3>
+<p>It is crucial that all our files have their places and there are only as many files as we need. Otherwise, things get unmanageable very quickly.</p>
+<ol style="list-style-type: decimal">
+<li>Create <code>memex_sandbox</code> repository on github
+<ol style="list-style-type: decimal">
+<li>add <code>.gitignore</code> with template for Python</li>
+<li>edit <code>.gitignore</code> on github.com, by adding the following two lines to the top</li>
+</ol></li>
+</ol>
+<pre><code>_data/
+.DS_Store</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Clone the repository to your machine</li>
+<li>Let’s organize everything nicely here. Like this:</li>
+</ol>
+<div class="sourceCode" id="cb46"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb46-1" title="1"><span class="ex">_bib/</span></a>
+<a class="sourceLine" id="cb46-2" title="2"><span class="ex">_data/</span></a>
+<a class="sourceLine" id="cb46-3" title="3"><span class="ex">_misc/</span></a>
+<a class="sourceLine" id="cb46-4" title="4"><span class="ex">1_build_structure.md</span></a>
+<a class="sourceLine" id="cb46-5" title="5"><span class="ex">1_build_structure.py</span></a>
+<a class="sourceLine" id="cb46-6" title="6"><span class="ex">2_OCR_test.py</span></a>
+<a class="sourceLine" id="cb46-7" title="7"><span class="ex">settings.yml</span></a></code></pre></div>
+<ul>
+<li><code>_bib/</code> : all bibliography-related files
+<ul>
+<li>Zotero bibliography</li>
+<li>language codes dictionary</li>
+<li>etc.</li>
+</ul></li>
+<li><code>_data/</code> : folder where we will be generating all the data; this folder is added to <code>.gitignore</code> so that none of the data would be uploaded to github (reason: copyright)</li>
+<li><code>_misc</code> : all other miscellaneous files go here; we can also move all the files we no longer need into this folder (keeping the main folder clean).</li>
+<li><code>settings.yml</code> should look something like:</li>
+</ul>
+<div class="sourceCode" id="cb47"><pre class="sourceCode yml"><code class="sourceCode yaml"><a class="sourceLine" id="cb47-1" title="1"><span class="fu">path_to_memex:</span><span class="at"> ./_data/</span></a>
+<a class="sourceLine" id="cb47-2" title="2"><span class="fu">bib_all:</span><span class="at"> ./_bib/zotero_bibliography.bib</span></a>
+<a class="sourceLine" id="cb47-3" title="3"><span class="fu">bibtex_keys:</span><span class="at"> ./_bib/bibtex_keys.yml</span></a></code></pre></div>
+</div>
+<div id="script-1_build_structure.py" class="section level3">
+<h3><span class="header-section-number">7.3.3</span> Script (<code>1_build_structure.py</code>)</h3>
+<div class="sourceCode" id="cb48"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb48-1" title="1"></a>
+<a class="sourceLine" id="cb48-2" title="2"><span class="im">import</span> os, shutil, re</a>
+<a class="sourceLine" id="cb48-3" title="3"><span class="im">import</span> yaml</a>
+<a class="sourceLine" id="cb48-4" title="4"></a>
+<a class="sourceLine" id="cb48-5" title="5"><span class="co">###########################################################</span></a>
+<a class="sourceLine" id="cb48-6" title="6"><span class="co"># VARIABLES ###############################################</span></a>
+<a class="sourceLine" id="cb48-7" title="7"><span class="co">###########################################################</span></a>
+<a class="sourceLine" id="cb48-8" title="8"></a>
+<a class="sourceLine" id="cb48-9" title="9">settingsFile <span class="op">=</span> <span class="st">&quot;./settings.yml&quot;</span></a>
+<a class="sourceLine" id="cb48-10" title="10">settings <span class="op">=</span> yaml.load(<span class="bu">open</span>(settingsFile))</a>
+<a class="sourceLine" id="cb48-11" title="11"></a>
+<a class="sourceLine" id="cb48-12" title="12">memexPath <span class="op">=</span> settings[<span class="st">&quot;path_to_memex&quot;</span>]</a>
+<a class="sourceLine" id="cb48-13" title="13"></a>
+<a class="sourceLine" id="cb48-14" title="14"><span class="co">###########################################################</span></a>
+<a class="sourceLine" id="cb48-15" title="15"><span class="co"># FUNCTIONS ###############################################</span></a>
+<a class="sourceLine" id="cb48-16" title="16"><span class="co">###########################################################</span></a>
+<a class="sourceLine" id="cb48-17" title="17"></a>
+<a class="sourceLine" id="cb48-18" title="18"><span class="co"># load bibTex Data into a dictionary</span></a>
+<a class="sourceLine" id="cb48-19" title="19"><span class="kw">def</span> loadBib(bibTexFile):</a>
+<a class="sourceLine" id="cb48-20" title="20"></a>
+<a class="sourceLine" id="cb48-21" title="21">    bibDic <span class="op">=</span> {}</a>
+<a class="sourceLine" id="cb48-22" title="22"></a>
+<a class="sourceLine" id="cb48-23" title="23">    <span class="cf">with</span> <span class="bu">open</span>(bibTexFile, <span class="st">&quot;r&quot;</span>, encoding<span class="op">=</span><span class="st">&quot;utf8&quot;</span>) <span class="im">as</span> f1:</a>
+<a class="sourceLine" id="cb48-24" title="24">        records <span class="op">=</span> f1.read().split(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">@&quot;</span>)</a>
+<a class="sourceLine" id="cb48-25" title="25"></a>
+<a class="sourceLine" id="cb48-26" title="26">        <span class="cf">for</span> record <span class="kw">in</span> records[<span class="dv">1</span>:]:</a>
+<a class="sourceLine" id="cb48-27" title="27">            <span class="co"># let process ONLY those records that have PDFs</span></a>
+<a class="sourceLine" id="cb48-28" title="28">            <span class="cf">if</span> <span class="st">&quot;.pdf&quot;</span> <span class="kw">in</span> record.lower():</a>
+<a class="sourceLine" id="cb48-29" title="29">                completeRecord <span class="op">=</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st">@&quot;</span> <span class="op">+</span> record</a>
+<a class="sourceLine" id="cb48-30" title="30"></a>
+<a class="sourceLine" id="cb48-31" title="31">                record <span class="op">=</span> record.strip().split(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)[:<span class="op">-</span><span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb48-32" title="32"></a>
+<a class="sourceLine" id="cb48-33" title="33">                rType <span class="op">=</span> record[<span class="dv">0</span>].split(<span class="st">&quot;{&quot;</span>)[<span class="dv">0</span>].strip()</a>
+<a class="sourceLine" id="cb48-34" title="34">                rCite <span class="op">=</span> record[<span class="dv">0</span>].split(<span class="st">&quot;{&quot;</span>)[<span class="dv">1</span>].strip().replace(<span class="st">&quot;,&quot;</span>, <span class="st">&quot;&quot;</span>)</a>
+<a class="sourceLine" id="cb48-35" title="35"></a>
+<a class="sourceLine" id="cb48-36" title="36">                bibDic[rCite] <span class="op">=</span> {}</a>
+<a class="sourceLine" id="cb48-37" title="37">                bibDic[rCite][<span class="st">&quot;rCite&quot;</span>] <span class="op">=</span> rCite</a>
+<a class="sourceLine" id="cb48-38" title="38">                bibDic[rCite][<span class="st">&quot;rType&quot;</span>] <span class="op">=</span> rType</a>
+<a class="sourceLine" id="cb48-39" title="39">                bibDic[rCite][<span class="st">&quot;complete&quot;</span>] <span class="op">=</span> completeRecord</a>
+<a class="sourceLine" id="cb48-40" title="40"></a>
+<a class="sourceLine" id="cb48-41" title="41">                <span class="cf">for</span> r <span class="kw">in</span> record[<span class="dv">1</span>:]:</a>
+<a class="sourceLine" id="cb48-42" title="42">                    key <span class="op">=</span> r.split(<span class="st">&quot;=&quot;</span>)[<span class="dv">0</span>].strip()</a>
+<a class="sourceLine" id="cb48-43" title="43">                    val <span class="op">=</span> r.split(<span class="st">&quot;=&quot;</span>)[<span class="dv">1</span>].strip()</a>
+<a class="sourceLine" id="cb48-44" title="44">                    val <span class="op">=</span> re.sub(<span class="st">&quot;^\{|\},?&quot;</span>, <span class="st">&quot;&quot;</span>, val)</a>
+<a class="sourceLine" id="cb48-45" title="45"></a>
+<a class="sourceLine" id="cb48-46" title="46">                    bibDic[rCite][key] <span class="op">=</span> val</a>
+<a class="sourceLine" id="cb48-47" title="47"></a>
+<a class="sourceLine" id="cb48-48" title="48">                    <span class="co"># fix the path to PDF</span></a>
+<a class="sourceLine" id="cb48-49" title="49">                    <span class="cf">if</span> key <span class="op">==</span> <span class="st">&quot;file&quot;</span>:</a>
+<a class="sourceLine" id="cb48-50" title="50">                        <span class="cf">if</span> <span class="st">&quot;;&quot;</span> <span class="kw">in</span> val:</a>
+<a class="sourceLine" id="cb48-51" title="51">                            <span class="co">#print(val)</span></a>
+<a class="sourceLine" id="cb48-52" title="52">                            temp <span class="op">=</span> val.split(<span class="st">&quot;;&quot;</span>)</a>
+<a class="sourceLine" id="cb48-53" title="53"></a>
+<a class="sourceLine" id="cb48-54" title="54">                            <span class="cf">for</span> t <span class="kw">in</span> temp:</a>
+<a class="sourceLine" id="cb48-55" title="55">                                <span class="cf">if</span> t.endswith(<span class="st">&quot;.pdf&quot;</span>):</a>
+<a class="sourceLine" id="cb48-56" title="56">                                    val <span class="op">=</span> t</a>
+<a class="sourceLine" id="cb48-57" title="57"></a>
+<a class="sourceLine" id="cb48-58" title="58">                            bibDic[rCite][key] <span class="op">=</span> val</a>
+<a class="sourceLine" id="cb48-59" title="59"></a>
+<a class="sourceLine" id="cb48-60" title="60">    <span class="bu">print</span>(<span class="st">&quot;=&quot;</span><span class="op">*</span><span class="dv">80</span>)</a>
+<a class="sourceLine" id="cb48-61" title="61">    <span class="bu">print</span>(<span class="st">&quot;NUMBER OF RECORDS IN BIBLIGORAPHY: </span><span class="sc">%d</span><span class="st">&quot;</span> <span class="op">%</span> <span class="bu">len</span>(bibDic))</a>
+<a class="sourceLine" id="cb48-62" title="62">    <span class="bu">print</span>(<span class="st">&quot;=&quot;</span><span class="op">*</span><span class="dv">80</span>)</a>
+<a class="sourceLine" id="cb48-63" title="63">    <span class="cf">return</span>(bibDic)</a>
+<a class="sourceLine" id="cb48-64" title="64"></a>
+<a class="sourceLine" id="cb48-65" title="65"><span class="co"># generate path from bibtex code, and create a folder, if does not exist;</span></a>
+<a class="sourceLine" id="cb48-66" title="66"><span class="co"># if the code is `SavantMuslims2017`, the path will be pathToMemex+`/s/sa/SavantMuslims2017/`</span></a>
+<a class="sourceLine" id="cb48-67" title="67"><span class="kw">def</span> generatePublPath(pathToMemex, bibTexCode):</a>
+<a class="sourceLine" id="cb48-68" title="68">    temp <span class="op">=</span> bibTexCode.lower()</a>
+<a class="sourceLine" id="cb48-69" title="69">    directory <span class="op">=</span> os.path.join(pathToMemex, temp[<span class="dv">0</span>], temp[:<span class="dv">2</span>], bibTexCode)</a>
+<a class="sourceLine" id="cb48-70" title="70">    <span class="cf">return</span>(directory)</a>
+<a class="sourceLine" id="cb48-71" title="71"></a>
+<a class="sourceLine" id="cb48-72" title="72"><span class="co"># process a single bibliographical record: 1) create its unique path; 2) save a bib file; 3) save PDF file </span></a>
+<a class="sourceLine" id="cb48-73" title="73"><span class="kw">def</span> processBibRecord(pathToMemex, bibRecDict):</a>
+<a class="sourceLine" id="cb48-74" title="74">    tempPath <span class="op">=</span> generatePublPath(pathToMemex, bibRecDict[<span class="st">&quot;rCite&quot;</span>])</a>
+<a class="sourceLine" id="cb48-75" title="75"></a>
+<a class="sourceLine" id="cb48-76" title="76">    <span class="bu">print</span>(<span class="st">&quot;=&quot;</span><span class="op">*</span><span class="dv">80</span>)</a>
+<a class="sourceLine" id="cb48-77" title="77">    <span class="bu">print</span>(<span class="st">&quot;</span><span class="sc">%s</span><span class="st"> :: </span><span class="sc">%s</span><span class="st">&quot;</span> <span class="op">%</span> (bibRecDict[<span class="st">&quot;rCite&quot;</span>], tempPath))</a>
+<a class="sourceLine" id="cb48-78" title="78">    <span class="bu">print</span>(<span class="st">&quot;=&quot;</span><span class="op">*</span><span class="dv">80</span>)</a>
+<a class="sourceLine" id="cb48-79" title="79"></a>
+<a class="sourceLine" id="cb48-80" title="80">    <span class="cf">if</span> <span class="kw">not</span> os.path.exists(tempPath):</a>
+<a class="sourceLine" id="cb48-81" title="81">        os.makedirs(tempPath)</a>
+<a class="sourceLine" id="cb48-82" title="82"></a>
+<a class="sourceLine" id="cb48-83" title="83">        bibFilePath <span class="op">=</span> os.path.join(tempPath, <span class="st">&quot;</span><span class="sc">%s</span><span class="st">.bib&quot;</span> <span class="op">%</span> bibRecDict[<span class="st">&quot;rCite&quot;</span>])</a>
+<a class="sourceLine" id="cb48-84" title="84">        <span class="cf">with</span> <span class="bu">open</span>(bibFilePath, <span class="st">&quot;w&quot;</span>, encoding<span class="op">=</span><span class="st">&quot;utf8&quot;</span>) <span class="im">as</span> f9:</a>
+<a class="sourceLine" id="cb48-85" title="85">            f9.write(bibRecDict[<span class="st">&quot;complete&quot;</span>])</a>
+<a class="sourceLine" id="cb48-86" title="86"></a>
+<a class="sourceLine" id="cb48-87" title="87">        pdfFileSRC <span class="op">=</span> bibRecDict[<span class="st">&quot;file&quot;</span>]</a>
+<a class="sourceLine" id="cb48-88" title="88">        pdfFileDST <span class="op">=</span> os.path.join(tempPath, <span class="st">&quot;</span><span class="sc">%s</span><span class="st">.pdf&quot;</span> <span class="op">%</span> bibRecDict[<span class="st">&quot;rCite&quot;</span>])</a>
+<a class="sourceLine" id="cb48-89" title="89">        <span class="cf">if</span> <span class="kw">not</span> os.path.isfile(pdfFileDST): <span class="co"># this is to avoid copying that had been already copied.</span></a>
+<a class="sourceLine" id="cb48-90" title="90">            shutil.copyfile(pdfFileSRC, pdfFileDST)</a>
+<a class="sourceLine" id="cb48-91" title="91"></a>
+<a class="sourceLine" id="cb48-92" title="92"></a>
+<a class="sourceLine" id="cb48-93" title="93"><span class="co">###########################################################</span></a>
+<a class="sourceLine" id="cb48-94" title="94"><span class="co"># PROCESS ALL RECORDS #####################################</span></a>
+<a class="sourceLine" id="cb48-95" title="95"><span class="co">###########################################################</span></a>
+<a class="sourceLine" id="cb48-96" title="96"></a>
+<a class="sourceLine" id="cb48-97" title="97"><span class="kw">def</span> processAllRecords(bibData):</a>
+<a class="sourceLine" id="cb48-98" title="98">    <span class="cf">for</span> k,v <span class="kw">in</span> bibData.items():</a>
+<a class="sourceLine" id="cb48-99" title="99">        processBibRecord(memexPath, v)</a>
+<a class="sourceLine" id="cb48-100" title="100"></a>
+<a class="sourceLine" id="cb48-101" title="101">bibData <span class="op">=</span> loadBib(settings[<span class="st">&quot;bib_all&quot;</span>])</a>
+<a class="sourceLine" id="cb48-102" title="102">processAllRecords(bibData)</a>
+<a class="sourceLine" id="cb48-103" title="103"></a>
+<a class="sourceLine" id="cb48-104" title="104"><span class="bu">print</span>(<span class="st">&quot;Done!&quot;</span>)</a></code></pre></div>
 
+</div>
 </div>
 </div>
             </section>
@@ -359,7 +578,7 @@ subSubFolder = <code>key.lower()[:2]</code>; subSubSubFolder = <code>key</code>;
         </div>
       </div>
 <a href="lesson-06.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="syllabus.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="lesson-08.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

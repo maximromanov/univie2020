@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>070172-1 UE Methodological course - Introduction to DH: Tools &amp; Techniques (2020W) Memex Edition</title>
+  <title>8 Lesson 08 | 070172-1 UE Methodological course - Introduction to DH: Tools &amp; Techniques (2020W) Memex Edition</title>
   <meta name="description" content="This is a collection of relevant materials for the class ‘070172-1 UE Methodological course - Introduction to DH: Tools &amp; Techniques (2020W) Memex Edition’, offered at the University of Vienna and taught by Maxim G. Romanov" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="070172-1 UE Methodological course - Introduction to DH: Tools &amp; Techniques (2020W) Memex Edition" />
+  <meta property="og:title" content="8 Lesson 08 | 070172-1 UE Methodological course - Introduction to DH: Tools &amp; Techniques (2020W) Memex Edition" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://maximromanov.github.io/univie2020/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="maximromanov/univie2020" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="070172-1 UE Methodological course - Introduction to DH: Tools &amp; Techniques (2020W) Memex Edition" />
+  <meta name="twitter:title" content="8 Lesson 08 | 070172-1 UE Methodological course - Introduction to DH: Tools &amp; Techniques (2020W) Memex Edition" />
   
   <meta name="twitter:description" content="This is a collection of relevant materials for the class ‘070172-1 UE Methodological course - Introduction to DH: Tools &amp; Techniques (2020W) Memex Edition’, offered at the University of Vienna and taught by Maxim G. Romanov" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <link rel="apple-touch-icon-precomposed" sizes="120x120" href="touch-icon.png" />
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-
-<link rel="next" href="memex-and-zettelkasten.html"/>
+<link rel="prev" href="lesson-07.html"/>
+<link rel="next" href="syllabus.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -296,40 +296,415 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">070172-1 UE Methodological course - Introduction to DH: Tools &amp; Techniques (2020W) <code>Memex Edition</code></h1>
-<p class="author"><em>Maxim G. Romanov</em></p>
-<p class="date"><em>2020-11-25</em></p>
+<div id="lesson-08" class="section level1">
+<h1><span class="header-section-number">8</span> Lesson 08</h1>
+<div id="building-memex---step-2" class="section level2">
+<h2><span class="header-section-number">8.1</span> Building Memex - Step 2</h2>
+<p>Now that we have all files and foolders created, we need to extract text from PDFs. We can use OCR, or (<a href="https://en.wikipedia.org/wiki/Optical_character_recognition"><em>optical character recognition</em></a>), — a method that allows us to extract editable text from images containing text.</p>
 </div>
-<div id="preliminaries" class="section level1 unnumbered">
-<h1>Preliminaries</h1>
-<p>This is a collection of relevant materials for a DH course by the Department of History, the University of Vienna.</p>
+<div id="ocr-software-tesseract" class="section level2">
+<h2><span class="header-section-number">8.2</span> OCR software: Tesseract</h2>
+<p>In order to run OCR, we need to have a suitable software installed on our computers. Tesseract is one of such options—it is free and open source OCR engine. We will need to install Tesseract and some Python libraries that “cooperate” with Tesseract. Keep in mind that usually OCR is language specific, i.e. you also need to have additional files for relevant languages installed; and when you run an OCR procedure, you need to explicitely declare the language that you want to recognize (details below). Language codes used in Tesseract can be found at the end of this lesson (you can also find suggestions on how to deal with automatic language selection in your Python code).</p>
+<p>General information on how to make Tesseract work on your machine can be found <a href="https://tesseract-ocr.github.io/tessdoc/Installation.html">here</a>.</p>
+<div id="installing-on-mac" class="section level4">
+<h4><span class="header-section-number">8.2.0.1</span> Installing on Mac</h4>
+<p>We can use <code>brew</code> to install everything we need on Mac:</p>
+<pre class="shell"><code>brew install tesseract</code></pre>
+<p>Support for additional languages can be installed in the following manner (<code>lang</code> is the language code that Tesseract uses to refer to a specific language):</p>
+<pre class="shell"><code>brew install tesseract-lang</code></pre>
+<p>The following command will list all available languages (as language codes). This will work only after you have installed Tesseract.</p>
+<pre class="shell"><code>tesseract --list-langs</code></pre>
+</div>
+<div id="installing-on-linux" class="section level4">
+<h4><span class="header-section-number">8.2.0.2</span> Installing on Linux</h4>
+<pre class="shell"><code>sudo apt install tesseract-ocr
+sudo apt install libtesseract-dev</code></pre>
+<p>On how to install additional languages, see <a href="https://tesseract-ocr.github.io/tessdoc/Installation.html">here</a>.</p>
+</div>
+<div id="installing-on-windows" class="section level4">
+<h4><span class="header-section-number">8.2.0.3</span> Installing on Windows</h4>
+<p>(<strong>Source:</strong> <a href="https://automaticaddison.com/how-to-set-up-anaconda-for-windows-10/" class="uri">https://automaticaddison.com/how-to-set-up-anaconda-for-windows-10/</a>)</p>
 <ul>
-<li>Course: 070172-1 UE Methodological course - Introduction to DH: Tools &amp; Techniques (2020W) <code>Memex Edition</code></li>
-<li>u:find Link: <a href="https://ufind.univie.ac.at/en/course.html?lv=070172&amp;semester=2020W" class="uri">https://ufind.univie.ac.at/en/course.html?lv=070172&amp;semester=2020W</a></li>
-<li>Meeting time: Tu 09:00-10:30</li>
-<li>Meeting place: Seminarraum Geschichte 3 Hauptgebäude, 2.Stock, Stiege 9; due to COVID, all meetings will be held online</li>
-<li>Instructor: Dr. Maxim Romanov, <a href="maxim.romanov@univie.ac.at">maxim.romanov@univie.ac.at</a></li>
-<li>Language of instruction: English</li>
-<li>Office hours: Tu 14:00-15:00 (on Zoom; please, contact beforehand!)</li>
-<li>Office: Department of History, Maria-Theresien-Straße 9, 1090 Wien, Room 1.10</li>
+<li>Go to <a href="https://github.com/UB-Mannheim/tesseract/wiki">Tesseract at UB Mannheim</a>.</li>
+<li>Download the Tesseract installer (64-bit).</li>
+<li>Run the installe and follow the the prompts. (You can choose additional languages during the installation.)</li>
 </ul>
-<p><img src="images/memex01.jpg" /></p>
-<p>Back in 1945, Vannevar Bush, a Director of the US Office of Scientific Research and Development, proposed a device, which he called memex:</p>
-<blockquote>
-<p>Consider a future device … in which an individual stores all his books, records, and communications, and which is mechanized so that it may be consulted with exceeding speed and flexibility. It is an enlarged intimate supplement to his memory. … The owner of the memex, let us say, is interested in the origin and properties of the bow and arrow. Specifically he is studying why the short Turkish bow was apparently superior to the English long bow in the skirmishes of the Crusades. He has dozens of possibly pertinent books and articles in his memex. First he runs through an encyclopedia, finds an interesting but sketchy article, leaves it projected. Next, in a history, he finds another pertinent item, and ties the two together. Thus he goes, building a trail of many items. Occasionally he inserts a comment of his own, either linking it into the main trail or joining it by a side trail to a particular item. When it becomes evident that the elastic properties of available materials had a great deal to do with the bow, he branches off on a side trail which takes him through textbooks on elasticity and tables of physical constants. He inserts a page of longhand analysis of his own. Thus he builds a trail of his interest through the maze of materials available to him. And his trails do not fade. Several years later, his talk with a friend turns to the queer ways in which a people resist innovations, even of vital interest. He has an example, in the fact that the outraged Europeans still failed to adopt the Turkish bow. In fact he has a trail on it. A touch brings up the code book. Tapping a few keys projects the head of the trail. A lever runs through it at will, stopping at interesting items, going off on side excursions. It is an interesting trail, pertinent to the discussion. … — <a href="https://www.theatlantic.com/magazine/archive/1945/07/as-we-may-think/303881/">The Atlantic, July 1945</a>.</p>
-</blockquote>
-<p><img src="images/memex02.jpg" />
-<img src="images/memex03.jpg" /></p>
+<p><img src="images/tesseract01.jpg" /></p>
+<ul>
+<li>Once Tesseract OCR is downloaded and installed, find it on your system.</li>
+<li>Copy the name of the folder where it is located. The default path is <code>C:\Program Files\Tesseract-OCR</code></li>
+<li>Search for “Environment Variables” on your computer. (“Environment Variable” is a button in “System Properties”, Tab “Advanced”)</li>
+</ul>
+<p><img src="images/tesseract02.jpg" /></p>
+<ul>
+<li>Under “System Variables,” select “Path”, and then click “Edit”.</li>
+<li>Add the path: <code>C:\Program Files\Tesseract-OCR</code> (or whatever it is on you machine)</li>
+</ul>
+<p><img src="images/tesseract03.jpg" /></p>
+<ul>
+<li>Click “OK” a few times to close all windows.</li>
+<li>Open up the Anaconda Prompt or Anaconda Powershell Prompt</li>
+<li>Type <code>tesseract</code> and hit “Enter”. If everything is installed correctly, you should see:</li>
+</ul>
+<pre class="shell"><code>Usage:
+  tesseract --help | --help-extra | --version
+  tesseract --list-langs
+  tesseract imagename outputbase [options...] [configfile...]
 
+OCR options:
+  -l LANG[+LANG]        Specify language(s) used for OCR.
+NOTE: These options must occur before any configfile.
+
+Single options:
+  --help                Show this help message.
+  --help-extra          Show extra help for advanced users.
+  --version             Show version information.
+  --list-langs          List available languages for tesseract engine.</code></pre>
+</div>
+<div id="for-all-systems-after-tesserract-is-installed" class="section level4">
+<h4><span class="header-section-number">8.2.0.4</span> For all systems after Tesserract is installed</h4>
+<p>After Tesseract is installed we need to install a couple of Python libraries:</p>
+<pre class="shell"><code>python -m pip install Pillow
+python -m pip install pytesseract</code></pre>
+<p>Just remember that you need to use the Python command that you are using to run your scripts (for example, on Mac <code>python</code> is for Python 2.7, and <code>python3</code> is commonly for Python 3.X)</p>
+<p>Alternatively, if you use Anaconda:</p>
+<pre class="shell"><code>conda install -c conda-forge Pillow
+conda install -c conda-forge pytesseract</code></pre>
+</div>
+<div id="final-test" class="section level4">
+<h4><span class="header-section-number">8.2.0.5</span> Final Test</h4>
+<p>In you command line tool, type <code>tesseract</code>. If everything is installed correctly, you shoudl see the following:</p>
+<pre class="shell"><code>user % tesseract
+
+Usage:
+  tesseract --help | --help-extra | --version
+  tesseract --list-langs
+  tesseract imagename outputbase [options...] [configfile...]
+
+OCR options:
+  -l LANG[+LANG]        Specify language(s) used for OCR.
+NOTE: These options must occur before any configfile.
+
+Single options:
+  --help                Show this help message.
+  --help-extra          Show extra help for advanced users.
+  --version             Show version information.
+  --list-langs          List available languages for tesseract engine.</code></pre>
+</div>
+</div>
+<div id="task-general-map-pseudocode" class="section level2">
+<h2><span class="header-section-number">8.3</span> Task: General Map Pseudocode</h2>
+<p>Like in the previous lesson, let’s start with processing a single publication (using a dictionary with the data on a single record). We want to process PDF page by page, save an image of each page, extract text from every page and save the extracted text into some format that would keep the entire text of our publication, preserving separation into pages (<em>Hint:</em> dictionary &gt; json). After we can do that, we will need to write a little bit of code that will process all our publicationa. What we want to have in the end is each and every publication in our memex processed this way. For consistency, let’s call this script <code>2_OCR.py</code></p>
+</div>
+<div id="code-snippets-functions" class="section level2">
+<h2><span class="header-section-number">8.4</span> Code snippets &amp; functions</h2>
+<div id="new-libraries" class="section level3">
+<h3><span class="header-section-number">8.4.1</span> New libraries</h3>
+<p>We will need the following new libraries that you will need to install, if you have not already:</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb57-1" title="1">pdf2image    <span class="co"># extracts images from PDF</span></a>
+<a class="sourceLine" id="cb57-2" title="2">pytesseract  <span class="co"># interacts with Tesseract, which extracts text from images</span></a>
+<a class="sourceLine" id="cb57-3" title="3">PyPDF2       <span class="co"># cleans PDFs</span></a></code></pre></div>
+</div>
+<div id="code-reuse" class="section level3">
+<h3><span class="header-section-number">8.4.2</span> Code Reuse</h3>
+<p>We have already discussed functions as a useful mechanism for code reuse; additionally, use can place often-used functions into a separate file (let’s call it <code>functions.py</code>) and import it with <code>import functions</code> in our other script. (<strong>IMPORTANT:</strong> <code>functions.py</code> <strong>must</strong> be in the same folder as you other script that imports it). For example:</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb58-1" title="1"><span class="co">#############################</span></a>
+<a class="sourceLine" id="cb58-2" title="2"><span class="co"># STORING FUNCTIONS #########</span></a>
+<a class="sourceLine" id="cb58-3" title="3"><span class="co">#############################</span></a>
+<a class="sourceLine" id="cb58-4" title="4"></a>
+<a class="sourceLine" id="cb58-5" title="5"><span class="im">import</span> os</a>
+<a class="sourceLine" id="cb58-6" title="6"></a>
+<a class="sourceLine" id="cb58-7" title="7"><span class="co"># generate path from bibtex code:</span></a>
+<a class="sourceLine" id="cb58-8" title="8"><span class="kw">def</span> generatePublPath(pathToMemex, bibTexCode):</a>
+<a class="sourceLine" id="cb58-9" title="9">    temp <span class="op">=</span> bibTexCode.lower()</a>
+<a class="sourceLine" id="cb58-10" title="10">    directory <span class="op">=</span> os.path.join(pathToMemex, temp[<span class="dv">0</span>], temp[:<span class="dv">2</span>], bibTexCode)</a>
+<a class="sourceLine" id="cb58-11" title="11">    <span class="cf">return</span>(directory)</a></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb59-1" title="1"><span class="co">#############################</span></a>
+<a class="sourceLine" id="cb59-2" title="2"><span class="co"># REUSING FUNCTIONS #########</span></a>
+<a class="sourceLine" id="cb59-3" title="3"><span class="co">#############################</span></a>
+<a class="sourceLine" id="cb59-4" title="4"></a>
+<a class="sourceLine" id="cb59-5" title="5"><span class="im">import</span> functions</a>
+<a class="sourceLine" id="cb59-6" title="6"></a>
+<a class="sourceLine" id="cb59-7" title="7">pathToMemex <span class="op">=</span> <span class="st">&quot;pathToMemex&quot;</span></a>
+<a class="sourceLine" id="cb59-8" title="8">citationKey <span class="op">=</span> <span class="st">&quot;Bush_AsWeMayThink_1945&quot;</span></a>
+<a class="sourceLine" id="cb59-9" title="9"></a>
+<a class="sourceLine" id="cb59-10" title="10">publPath <span class="op">=</span> functions.generatePublPath(pathToMemex, citationKey)</a></code></pre></div>
+<p><strong>NB:</strong> In general, you can also package your functions into a library and use it as a regular library. For more details, check Paul Vierthaler’s <a href="https://www.youtube.com/playlist?list=PL6kqrM2i6BPKxJN3610r1NzT7u235hEjM">“Studium Digitale” Series</a> (particularly Video 5).</p>
+</div>
+</div>
+<div id="clean-temporary-copy-of-a-pdf" class="section level2">
+<h2><span class="header-section-number">8.5</span> Clean Temporary Copy of a PDF</h2>
+<p>Why do we need this function? You may have PDFs that you have already annotated with highlights, comments, etc. Highlights will interfere with the OCR process and will most likely be omitted from the final results. For this reason, we will want to clean all PDFs before we OCR them. In order not to delete your annotations, we will generate a temporary PDF file, which we can safely delete after processing it.</p>
+<p>The functions take a path to a PDF as its argument; creates a clean copy of it and saves it with a different name, replacing the suffix <code>.pdf</code> with <code>_TEMP.pdf</code>; and then returns the path to this temporary PDF. We can easily process it and delete after completion.</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb60-1" title="1"><span class="im">import</span> PyPDF2</a>
+<a class="sourceLine" id="cb60-2" title="2"></a>
+<a class="sourceLine" id="cb60-3" title="3"><span class="kw">def</span> removeCommentsFromPDF(pathToPdf):</a>
+<a class="sourceLine" id="cb60-4" title="4">    <span class="cf">with</span> <span class="bu">open</span>(pathToPdf, <span class="st">&#39;rb&#39;</span>) <span class="im">as</span> pdf_obj:</a>
+<a class="sourceLine" id="cb60-5" title="5">        pdf <span class="op">=</span> PyPDF2.PdfFileReader(pdf_obj)</a>
+<a class="sourceLine" id="cb60-6" title="6">        out <span class="op">=</span> PyPDF2.PdfFileWriter()</a>
+<a class="sourceLine" id="cb60-7" title="7">        <span class="cf">for</span> page <span class="kw">in</span> pdf.pages:</a>
+<a class="sourceLine" id="cb60-8" title="8">            out.addPage(page)</a>
+<a class="sourceLine" id="cb60-9" title="9">            out.removeLinks()</a>
+<a class="sourceLine" id="cb60-10" title="10">        tempPDF <span class="op">=</span> pathToPdf.replace(<span class="st">&quot;.pdf&quot;</span>, <span class="st">&quot;_TEMP.pdf&quot;</span>)</a>
+<a class="sourceLine" id="cb60-11" title="11">        <span class="cf">with</span> <span class="bu">open</span>(tempPDF, <span class="st">&#39;wb&#39;</span>) <span class="im">as</span> f: </a>
+<a class="sourceLine" id="cb60-12" title="12">            out.write(f)</a>
+<a class="sourceLine" id="cb60-13" title="13">    <span class="cf">return</span>(tempPDF)</a></code></pre></div>
+<div id="ocr-ing-pdf" class="section level3">
+<h3><span class="header-section-number">8.5.1</span> OCR-ing PDF</h3>
+<p>The following function takes three arguments: path to memex, citation key, and the language of the publication. The function processes PDFs: extracts images, OCRs them, collects results into a dictionary, saves OCR results into a JSON file.</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb61-1" title="1"><span class="im">import</span> os, json</a>
+<a class="sourceLine" id="cb61-2" title="2"><span class="im">import</span> pdf2image, pytesseract</a>
+<a class="sourceLine" id="cb61-3" title="3"></a>
+<a class="sourceLine" id="cb61-4" title="4"><span class="kw">def</span> ocrPublication(pathToMemex, citationKey, language):</a>
+<a class="sourceLine" id="cb61-5" title="5">    publPath <span class="op">=</span> functions.generatePublPath(pathToMemex, citationKey)</a>
+<a class="sourceLine" id="cb61-6" title="6">    pdfFile  <span class="op">=</span> os.path.join(publPath, citationKey <span class="op">+</span> <span class="st">&quot;.pdf&quot;</span>)</a>
+<a class="sourceLine" id="cb61-7" title="7">    jsonFile <span class="op">=</span> os.path.join(publPath, citationKey <span class="op">+</span> <span class="st">&quot;.json&quot;</span>)</a>
+<a class="sourceLine" id="cb61-8" title="8">    saveToPath <span class="op">=</span> os.path.join(publPath, <span class="st">&quot;pages&quot;</span>)</a>
+<a class="sourceLine" id="cb61-9" title="9"></a>
+<a class="sourceLine" id="cb61-10" title="10">    pdfFileTemp <span class="op">=</span> removeCommentsFromPDF(pdfFile)</a>
+<a class="sourceLine" id="cb61-11" title="11"></a>
+<a class="sourceLine" id="cb61-12" title="12">    <span class="cf">if</span> <span class="kw">not</span> os.path.isfile(jsonFile):</a>
+<a class="sourceLine" id="cb61-13" title="13">        <span class="cf">if</span> <span class="kw">not</span> os.path.exists(saveToPath):</a>
+<a class="sourceLine" id="cb61-14" title="14">            os.makedirs(saveToPath)</a>
+<a class="sourceLine" id="cb61-15" title="15">        </a>
+<a class="sourceLine" id="cb61-16" title="16">        <span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\t</span><span class="st">&gt;&gt;&gt; OCR-ing: </span><span class="sc">%s</span><span class="st">&quot;</span> <span class="op">%</span> citationKey)</a>
+<a class="sourceLine" id="cb61-17" title="17"></a>
+<a class="sourceLine" id="cb61-18" title="18">        textResults <span class="op">=</span> {}</a>
+<a class="sourceLine" id="cb61-19" title="19">        images <span class="op">=</span> pdf2image.convert_from_path(pdfFileTemp)</a>
+<a class="sourceLine" id="cb61-20" title="20">        pageTotal <span class="op">=</span> <span class="bu">len</span>(images)</a>
+<a class="sourceLine" id="cb61-21" title="21">        pageCount <span class="op">=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb61-22" title="22">        <span class="cf">for</span> image <span class="kw">in</span> images:</a>
+<a class="sourceLine" id="cb61-23" title="23">            image <span class="op">=</span> image.convert(<span class="st">&#39;1&#39;</span>)</a>
+<a class="sourceLine" id="cb61-24" title="24">            finalPath <span class="op">=</span> os.path.join(saveToPath, <span class="st">&quot;</span><span class="sc">%04d</span><span class="st">.png&quot;</span> <span class="op">%</span> pageCount)</a>
+<a class="sourceLine" id="cb61-25" title="25">            image.save(finalPath, optimize<span class="op">=</span><span class="va">True</span>, quality<span class="op">=</span><span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb61-26" title="26"></a>
+<a class="sourceLine" id="cb61-27" title="27">            text <span class="op">=</span> pytesseract.image_to_string(image, lang<span class="op">=</span>language)</a>
+<a class="sourceLine" id="cb61-28" title="28">            textResults[<span class="st">&quot;</span><span class="sc">%04d</span><span class="st">&quot;</span> <span class="op">%</span> pageCount] <span class="op">=</span> text</a>
+<a class="sourceLine" id="cb61-29" title="29"></a>
+<a class="sourceLine" id="cb61-30" title="30">            <span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\t\t</span><span class="sc">%04d</span><span class="st">/</span><span class="sc">%04d</span><span class="st"> pages&quot;</span> <span class="op">%</span> (pageCount, pageTotal))</a>
+<a class="sourceLine" id="cb61-31" title="31">            pageCount <span class="op">+=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb61-32" title="32"></a>
+<a class="sourceLine" id="cb61-33" title="33">        <span class="cf">with</span> <span class="bu">open</span>(jsonFile, <span class="st">&#39;w&#39;</span>, encoding<span class="op">=</span><span class="st">&#39;utf8&#39;</span>) <span class="im">as</span> f9:</a>
+<a class="sourceLine" id="cb61-34" title="34">            json.dump(textResults, f9, sort_keys<span class="op">=</span><span class="va">True</span>, indent<span class="op">=</span><span class="dv">4</span>, ensure_ascii<span class="op">=</span><span class="va">False</span>)</a>
+<a class="sourceLine" id="cb61-35" title="35">    </a>
+<a class="sourceLine" id="cb61-36" title="36">    <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb61-37" title="37">        <span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\t</span><span class="st">&gt;&gt;&gt; </span><span class="sc">%s</span><span class="st"> has already been OCR-ed...&quot;</span> <span class="op">%</span> citationKey)</a>
+<a class="sourceLine" id="cb61-38" title="38"></a>
+<a class="sourceLine" id="cb61-39" title="39">    os.remove(pdfFileTemp)</a></code></pre></div>
+</div>
+<div id="missing-functions" class="section level3">
+<h3><span class="header-section-number">8.5.2</span> Missing functions</h3>
+<p>You can reuse these functions to assemble the entire process needed for this lesson. You will need to write a couple of your own though:</p>
+<ul>
+<li>first, you will need to solve the problem of picking the right language (see my comments below in <em>Tesseract Language Codes</em>)</li>
+<li>you will need to write the final block that processes all PDFs.</li>
+</ul>
+</div>
+</div>
+<div id="one-more-note-on-ocr" class="section level2">
+<h2><span class="header-section-number">8.6</span> One more note on OCR</h2>
+<p>Unfortunately, OCR-ing is a rather slow process, taking 10-30 seconds per page (depending on the speed of your computer). So, you will have to run it for some time in order to process everything—the more you have the longer it will take to process all. Good news is that this operation needs to be done only once per publication. Additionally, we can use some tricks to speed up the process, which we will discuss next time.</p>
+</div>
+<div id="HWL08" class="section level2">
+<h2><span class="header-section-number">8.7</span> Homework</h2>
+<ul>
+<li>the task is described above</li>
+<li>additionally, take the solution scripts from the previous lesson and annotate every line of code; submit your annnotations together with the main assignment</li>
+<li>upload your results to your memex github repository
+<ul>
+<li>place annotated scripts into <code>_misc</code> subfolder</li>
+</ul></li>
+</ul>
+</div>
+<div id="HWL08S" class="section level2">
+<h2><span class="header-section-number">8.8</span> Homework Solution</h2>
+<p><em>stay tuned…</em></p>
+</div>
+<div id="tesseract-language-codes" class="section level2">
+<h2><span class="header-section-number">8.9</span> Tesseract Language Codes</h2>
+<p>As you can see below there are quite a few languages. You may need only those languages that you can read. The question is how to determine the language of a publication? Usually, when you add data to Zotero, there will be a field that states the language. There are two problems, however. First, the language field is often empty. Second, the same language can be indicated in a variety of ways (for example, <code>en</code>, <code>eng</code>, <code>English</code>, <code>Englisch</code>, etc.). Tesseract uses triliteral <a href="https://www.loc.gov/standards/iso639-2/php/code_list.php">ISO 639-2</a> standard for language codes (<code>eng</code> for English). How to resolve this issue? There are three things to consider:</p>
+<ol style="list-style-type: decimal">
+<li>you can curate you Zotero data, manually fixing language codes;</li>
+<li>you can create a dictionary (yaml file) that will have most common spellings of languages that occure in your data (you can build a frequency list in order to identify them; then convert that data into YAML format with regular expressions; then manually fix all irregularities);</li>
+<li>you can write a function that checks if the language code in your data corresponds to any code in Tesseract: if true, the function will return it; if not, it defaults to the most common language in your library.</li>
+</ol>
+<p>In general, the most optimal approach will have elements of all three.</p>
+<pre class="shell"><code>user % tesseract --list-langs
+
+List of available languages (162):
+afr
+amh
+ara
+asm
+aze
+aze_cyrl
+bel
+ben
+bod
+bos
+bre
+bul
+cat
+ceb
+ces
+chi_sim
+chi_sim_vert
+chi_tra
+chi_tra_vert
+chr
+cos
+cym
+dan
+deu
+div
+dzo
+ell
+eng
+enm
+epo
+est
+eus
+fao
+fas
+fil
+fin
+fra
+frk
+frm
+fry
+gla
+gle
+glg
+grc
+guj
+hat
+heb
+hin
+hrv
+hun
+hye
+iku
+ind
+isl
+ita
+ita_old
+jav
+jpn
+jpn_vert
+kan
+kat
+kat_old
+kaz
+khm
+kir
+kmr
+kor
+kor_vert
+lao
+lat
+lav
+lit
+ltz
+mal
+mar
+mkd
+mlt
+mon
+mri
+msa
+mya
+nep
+nld
+nor
+oci
+ori
+osd
+pan
+pol
+por
+pus
+que
+ron
+rus
+san
+script/Arabic
+script/Armenian
+script/Bengali
+script/Canadian_Aboriginal
+script/Cherokee
+script/Cyrillic
+script/Devanagari
+script/Ethiopic
+script/Fraktur
+script/Georgian
+script/Greek
+script/Gujarati
+script/Gurmukhi
+script/HanS
+script/HanS_vert
+script/HanT
+script/HanT_vert
+script/Hangul
+script/Hangul_vert
+script/Hebrew
+script/Japanese
+script/Japanese_vert
+script/Kannada
+script/Khmer
+script/Lao
+script/Latin
+script/Malayalam
+script/Myanmar
+script/Oriya
+script/Sinhala
+script/Syriac
+script/Tamil
+script/Telugu
+script/Thaana
+script/Thai
+script/Tibetan
+script/Vietnamese
+sin
+slk
+slv
+snd
+snum
+spa
+spa_old
+sqi
+srp
+srp_latn
+sun
+swa
+swe
+syr
+tam
+tat
+tel
+tgk
+tha
+tir
+ton
+tur
+uig
+ukr
+urd
+uzb
+uzb_cyrl
+vie
+yid
+yor
+</code></pre>
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="memex-and-zettelkasten.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="lesson-07.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="syllabus.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
