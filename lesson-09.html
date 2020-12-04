@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1 Lesson 01 | 070172-1 UE Methodological course - Introduction to DH: Tools &amp; Techniques (2020W) Memex Edition</title>
+  <title>9 Lesson 09 | 070172-1 UE Methodological course - Introduction to DH: Tools &amp; Techniques (2020W) Memex Edition</title>
   <meta name="description" content="This is a collection of relevant materials for the class ‘070172-1 UE Methodological course - Introduction to DH: Tools &amp; Techniques (2020W) Memex Edition’, offered at the University of Vienna and taught by Maxim G. Romanov" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1 Lesson 01 | 070172-1 UE Methodological course - Introduction to DH: Tools &amp; Techniques (2020W) Memex Edition" />
+  <meta property="og:title" content="9 Lesson 09 | 070172-1 UE Methodological course - Introduction to DH: Tools &amp; Techniques (2020W) Memex Edition" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://maximromanov.github.io/univie2020/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="maximromanov/univie2020" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1 Lesson 01 | 070172-1 UE Methodological course - Introduction to DH: Tools &amp; Techniques (2020W) Memex Edition" />
+  <meta name="twitter:title" content="9 Lesson 09 | 070172-1 UE Methodological course - Introduction to DH: Tools &amp; Techniques (2020W) Memex Edition" />
   
   <meta name="twitter:description" content="This is a collection of relevant materials for the class ‘070172-1 UE Methodological course - Introduction to DH: Tools &amp; Techniques (2020W) Memex Edition’, offered at the University of Vienna and taught by Maxim G. Romanov" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <link rel="apple-touch-icon-precomposed" sizes="120x120" href="touch-icon.png" />
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-<link rel="prev" href="work-plan.html"/>
-<link rel="next" href="lesson-02.html"/>
+<link rel="prev" href="lesson-08.html"/>
+<link rel="next" href="syllabus.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -309,120 +309,192 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="lesson-01" class="section level1">
-<h1><span class="header-section-number">1</span> Lesson 01</h1>
-<div id="bibliography-managers" class="section level2">
-<h2><span class="header-section-number">1.1</span> Bibliography Managers</h2>
-<p>Bibliography managers make your life easier when it comes to collectin, organizing and maintaining bibliographical references and your library of electronic publications (most commonly as PDFs). Additionally, they are an indispensable writing tool as they take care of formatting (and reformatting) references and bibliographies in any writing project that you might undertake. There are plenty of different programs out there with their advantages and disadvantages (for example, Mendeley, RefWorks, Citavi, Endnote, Papers, Zotero, and quite a few more). We will use Zotero—it is being developed by scholars for scholars; it is free and open source; it does pretty much everything you might possibly need from a program of this kind.</p>
+<div id="lesson-09" class="section level1">
+<h1><span class="header-section-number">9</span> Lesson 09</h1>
+<div id="building-memex---step-3" class="section level2">
+<h2><span class="header-section-number">9.1</span> Building Memex - Step 3</h2>
+<p>Now, as we have images of pages extracted and OCRed, we may want to create some intefrace that would allow us to move around our memex and do rather traditional reading of publications in our library. Perhaps the easiest way for building a simple interface would be to use HTML, which allows to easily link everything together and can be easily used in any browser.</p>
+<p>What do we need to do? We want a function that creates interconnected HTML pages for each publication—with all the relevant bibliographical information included into each and every page. The working function is actually given below: your main task here will be to figure out how it works; and to write a bit of code that processes every publication in your memex (essentially, you will need to slightly modify a “processAll” function from previous assignments).</p>
+<p>Your other, more difficult task will be to generate a starting page and a page that lists all publications in your memex and allows one to navigate from there to any of listed publications. Details are given below. Keep reading :)</p>
+<p>(You do not really need to know any HTML to complete this assignment, but, just in case you are curious, you can find links to relevant materials in <em>Additional Materials</em> below).</p>
 </div>
-<div id="zotero" class="section level2">
-<h2><span class="header-section-number">1.2</span> Zotero</h2>
-<div id="getting-started" class="section level3">
-<h3><span class="header-section-number">1.2.1</span> Getting Started</h3>
+<div id="code-snippets-functions" class="section level2">
+<h2><span class="header-section-number">9.2</span> Code snippets &amp; functions</h2>
+<div id="the-main-function-publication-interface" class="section level3">
+<h3><span class="header-section-number">9.2.1</span> The main function: Publication Interface</h3>
+<p>Here is one, big, scary function that merges together page images, OCR-ed text, and bibliographical information into a simple HTML-based interface. While it looks long and scary, it is actually quite simple — most of the code is simple fine/replace operations that are populating a template with relevant information.</p>
+<p>In a nutshell, the function:</p>
 <ul>
-<li>Zotero can be installed from here: <a href="https://www.zotero.org/download/" class="uri">https://www.zotero.org/download/</a>; the page will offer you a version suitable for your operating system, but you should also see the links to versions for specific systems (Mac OS, Windows, Linux).</li>
-<li>During installation Zotero should automatically integrate into your browser (like Chrome or Firefox) and into your word processor (MS Word, LibreOffice, GoogleDocs are supported). It is possible that you may have to do that manually.
+<li>takes a citation key and the path to a relevant <code>.bib</code> file as its arguments</li>
+<li>loads:
 <ul>
-<li>Zotero Connector for Chrome can be installed from the same page (<a href="https://www.zotero.org/download/" class="uri">https://www.zotero.org/download/</a>)</li>
-<li>detailed explanations on how to use word processor plugins can be found <a href="https://www.zotero.org/support/word_processor_integration">here</a>; you can use Zotero with <a href="https://www.zotero.org/support/word_processor_plugin_usage">MS Word</a>, <a href="https://www.zotero.org/support/libreoffice_writer_plugin_usage">LibreOffice</a> and <a href="https://www.zotero.org/support/google_docs">Google Docs</a>; in case you cannot get your plugin activated, check the <a href="https://www.zotero.org/support/word_processor_plugin_troubleshooting">Troubleshooting Section</a>.</li>
+<li>OCRed data</li>
+<li>bibliographical information</li>
+<li>an HTML template</li>
+</ul></li>
+<li>loops through the pages of OCRed data and inserts relevant information into relevant slots</li>
+<li>saves each page into its place</li>
+</ul>
+<div class="sourceCode" id="cb66"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb66-1" title="1"><span class="co"># generate interface for the publication</span></a>
+<a class="sourceLine" id="cb66-2" title="2"><span class="kw">def</span> generatePublicationInterface(citeKey, pathToBibFile):</a>
+<a class="sourceLine" id="cb66-3" title="3">    <span class="bu">print</span>(<span class="st">&quot;=&quot;</span><span class="op">*</span><span class="dv">80</span>)</a>
+<a class="sourceLine" id="cb66-4" title="4">    <span class="bu">print</span>(citeKey)</a>
+<a class="sourceLine" id="cb66-5" title="5"></a>
+<a class="sourceLine" id="cb66-6" title="6">    jsonFile <span class="op">=</span> pathToBibFile.replace(<span class="st">&quot;.bib&quot;</span>, <span class="st">&quot;.json&quot;</span>)</a>
+<a class="sourceLine" id="cb66-7" title="7">    <span class="cf">with</span> <span class="bu">open</span>(jsonFile) <span class="im">as</span> jsonData:</a>
+<a class="sourceLine" id="cb66-8" title="8">        ocred <span class="op">=</span> json.load(jsonData)</a>
+<a class="sourceLine" id="cb66-9" title="9">        pNums <span class="op">=</span> ocred.keys()</a>
+<a class="sourceLine" id="cb66-10" title="10"></a>
+<a class="sourceLine" id="cb66-11" title="11">        pageDic <span class="op">=</span> functions.generatePageLinks(pNums)</a>
+<a class="sourceLine" id="cb66-12" title="12"></a>
+<a class="sourceLine" id="cb66-13" title="13">        <span class="co"># load page template</span></a>
+<a class="sourceLine" id="cb66-14" title="14">        <span class="cf">with</span> <span class="bu">open</span>(settings[<span class="st">&quot;template_page&quot;</span>], <span class="st">&quot;r&quot;</span>, encoding<span class="op">=</span><span class="st">&quot;utf8&quot;</span>) <span class="im">as</span> ft:</a>
+<a class="sourceLine" id="cb66-15" title="15">            template <span class="op">=</span> ft.read()</a>
+<a class="sourceLine" id="cb66-16" title="16"></a>
+<a class="sourceLine" id="cb66-17" title="17">        <span class="co"># load individual bib record</span></a>
+<a class="sourceLine" id="cb66-18" title="18">        bibFile <span class="op">=</span> pathToBibFile</a>
+<a class="sourceLine" id="cb66-19" title="19">        bibDic <span class="op">=</span> functions.loadBib(bibFile)</a>
+<a class="sourceLine" id="cb66-20" title="20">        bibForHTML <span class="op">=</span> functions.prettifyBib(bibDic[citeKey][<span class="st">&quot;complete&quot;</span>])</a>
+<a class="sourceLine" id="cb66-21" title="21"></a>
+<a class="sourceLine" id="cb66-22" title="22">        orderedPages <span class="op">=</span> <span class="bu">list</span>(pageDic.keys())</a>
+<a class="sourceLine" id="cb66-23" title="23"></a>
+<a class="sourceLine" id="cb66-24" title="24">        <span class="cf">for</span> o <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(orderedPages)):</a>
+<a class="sourceLine" id="cb66-25" title="25">            <span class="co">#print(o)</span></a>
+<a class="sourceLine" id="cb66-26" title="26">            k <span class="op">=</span> orderedPages[o]</a>
+<a class="sourceLine" id="cb66-27" title="27">            v <span class="op">=</span> pageDic[orderedPages[o]]</a>
+<a class="sourceLine" id="cb66-28" title="28"></a>
+<a class="sourceLine" id="cb66-29" title="29">            pageTemp <span class="op">=</span> template</a>
+<a class="sourceLine" id="cb66-30" title="30">            pageTemp <span class="op">=</span> pageTemp.replace(<span class="st">&quot;@PAGELINKS@&quot;</span>, v)</a>
+<a class="sourceLine" id="cb66-31" title="31">            pageTemp <span class="op">=</span> pageTemp.replace(<span class="st">&quot;@PATHTOFILE@&quot;</span>, <span class="st">&quot;&quot;</span>)</a>
+<a class="sourceLine" id="cb66-32" title="32">            pageTemp <span class="op">=</span> pageTemp.replace(<span class="st">&quot;@CITATIONKEY@&quot;</span>, citeKey)</a>
+<a class="sourceLine" id="cb66-33" title="33"></a>
+<a class="sourceLine" id="cb66-34" title="34">            <span class="cf">if</span> k <span class="op">!=</span> <span class="st">&quot;DETAILS&quot;</span>:</a>
+<a class="sourceLine" id="cb66-35" title="35">                mainElement <span class="op">=</span> <span class="st">&#39;&lt;img src=&quot;@PAGEFILE@&quot; width=&quot;100%&quot; alt=&quot;&quot;&gt;&#39;</span>.replace(<span class="st">&quot;@PAGEFILE@&quot;</span>, <span class="st">&quot;</span><span class="sc">%s</span><span class="st">.png&quot;</span> <span class="op">%</span> k)</a>
+<a class="sourceLine" id="cb66-36" title="36">                pageTemp <span class="op">=</span> pageTemp.replace(<span class="st">&quot;@MAINELEMENT@&quot;</span>, mainElement)</a>
+<a class="sourceLine" id="cb66-37" title="37">                pageTemp <span class="op">=</span> pageTemp.replace(<span class="st">&quot;@OCREDCONTENT@&quot;</span>, ocred[k].replace(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>, <span class="st">&quot;&lt;br&gt;&quot;</span>))</a>
+<a class="sourceLine" id="cb66-38" title="38">            <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb66-39" title="39">                mainElement <span class="op">=</span> bibForHTML.replace(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>, <span class="st">&quot;&lt;br&gt; &quot;</span>)</a>
+<a class="sourceLine" id="cb66-40" title="40">                mainElement <span class="op">=</span> <span class="st">&#39;&lt;div class=&quot;bib&quot;&gt;</span><span class="sc">%s</span><span class="st">&lt;/div&gt;&#39;</span> <span class="op">%</span> mainElement</a>
+<a class="sourceLine" id="cb66-41" title="41">                mainElement <span class="op">+=</span> <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&lt;img src=&quot;wordcloud.jpg&quot; width=&quot;100%&quot; alt=&quot;wordcloud&quot;&gt;&#39;</span></a>
+<a class="sourceLine" id="cb66-42" title="42">                pageTemp <span class="op">=</span> pageTemp.replace(<span class="st">&quot;@MAINELEMENT@&quot;</span>, mainElement)</a>
+<a class="sourceLine" id="cb66-43" title="43">                pageTemp <span class="op">=</span> pageTemp.replace(<span class="st">&quot;@OCREDCONTENT@&quot;</span>, <span class="st">&quot;&quot;</span>)</a>
+<a class="sourceLine" id="cb66-44" title="44"></a>
+<a class="sourceLine" id="cb66-45" title="45">            <span class="co"># @NEXTPAGEHTML@ and @PREVIOUSPAGEHTML@</span></a>
+<a class="sourceLine" id="cb66-46" title="46">            <span class="cf">if</span> k <span class="op">==</span> <span class="st">&quot;DETAILS&quot;</span>:</a>
+<a class="sourceLine" id="cb66-47" title="47">                nextPage <span class="op">=</span> <span class="st">&quot;0001.html&quot;</span></a>
+<a class="sourceLine" id="cb66-48" title="48">                prevPage <span class="op">=</span> <span class="st">&quot;&quot;</span></a>
+<a class="sourceLine" id="cb66-49" title="49">            <span class="cf">elif</span> k <span class="op">==</span> <span class="st">&quot;0001&quot;</span>:</a>
+<a class="sourceLine" id="cb66-50" title="50">                nextPage <span class="op">=</span> <span class="st">&quot;0002.html&quot;</span></a>
+<a class="sourceLine" id="cb66-51" title="51">                prevPage <span class="op">=</span> <span class="st">&quot;DETAILS.html&quot;</span></a>
+<a class="sourceLine" id="cb66-52" title="52">            <span class="cf">elif</span> o <span class="op">==</span> <span class="bu">len</span>(orderedPages)<span class="op">-</span><span class="dv">1</span>:</a>
+<a class="sourceLine" id="cb66-53" title="53">                nextPage <span class="op">=</span> <span class="st">&quot;&quot;</span></a>
+<a class="sourceLine" id="cb66-54" title="54">                prevPage <span class="op">=</span> orderedPages[o<span class="dv">-1</span>] <span class="op">+</span> <span class="st">&quot;.html&quot;</span></a>
+<a class="sourceLine" id="cb66-55" title="55">            <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb66-56" title="56">                nextPage <span class="op">=</span> orderedPages[o<span class="op">+</span><span class="dv">1</span>] <span class="op">+</span> <span class="st">&quot;.html&quot;</span></a>
+<a class="sourceLine" id="cb66-57" title="57">                prevPage <span class="op">=</span> orderedPages[o<span class="dv">-1</span>] <span class="op">+</span> <span class="st">&quot;.html&quot;</span></a>
+<a class="sourceLine" id="cb66-58" title="58"></a>
+<a class="sourceLine" id="cb66-59" title="59">            pageTemp <span class="op">=</span> pageTemp.replace(<span class="st">&quot;@NEXTPAGEHTML@&quot;</span>, nextPage)</a>
+<a class="sourceLine" id="cb66-60" title="60">            pageTemp <span class="op">=</span> pageTemp.replace(<span class="st">&quot;@PREVIOUSPAGEHTML@&quot;</span>, prevPage)</a>
+<a class="sourceLine" id="cb66-61" title="61"></a>
+<a class="sourceLine" id="cb66-62" title="62">            pagePath <span class="op">=</span> os.path.join(pathToBibFile.replace(citeKey<span class="op">+</span><span class="st">&quot;.bib&quot;</span>, <span class="st">&quot;&quot;</span>), <span class="st">&quot;pages&quot;</span>, <span class="st">&quot;</span><span class="sc">%s</span><span class="st">.html&quot;</span> <span class="op">%</span> k)</a>
+<a class="sourceLine" id="cb66-63" title="63">            <span class="cf">with</span> <span class="bu">open</span>(pagePath, <span class="st">&quot;w&quot;</span>, encoding<span class="op">=</span><span class="st">&quot;utf8&quot;</span>) <span class="im">as</span> f9:</a>
+<a class="sourceLine" id="cb66-64" title="64">                f9.write(pageTemp)</a></code></pre></div>
+</div>
+<div id="additional-functions" class="section level3">
+<h3><span class="header-section-number">9.2.2</span> Additional functions</h3>
+<p>As we discussed before, sometimes it makes sense to move some of the code into separate functions. These are such functions that I removed from the <em>main</em> code so that it is more readable (although a few more functions can be also extracted from the main code).</p>
+<p><em>TOC Links</em>: The following function generate links to all pages in a given publication so that it is easier to navigate and move around; each page in a publication recieves its own list of links where the current page is colored with red.</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb67-1" title="1"><span class="kw">def</span> generatePageLinks(pNumList):</a>
+<a class="sourceLine" id="cb67-2" title="2">    listMod <span class="op">=</span> [<span class="st">&quot;DETAILS&quot;</span>]</a>
+<a class="sourceLine" id="cb67-3" title="3">    listMod.extend(pNumList)</a>
+<a class="sourceLine" id="cb67-4" title="4"></a>
+<a class="sourceLine" id="cb67-5" title="5">    toc <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb67-6" title="6">    <span class="cf">for</span> l <span class="kw">in</span> listMod:</a>
+<a class="sourceLine" id="cb67-7" title="7">        toc.append(<span class="st">&#39;&lt;a href=&quot;</span><span class="sc">%s</span><span class="st">.html&quot;&gt;</span><span class="sc">%s</span><span class="st">&lt;/a&gt;&#39;</span> <span class="op">%</span> (l, l))</a>
+<a class="sourceLine" id="cb67-8" title="8">    toc <span class="op">=</span> <span class="st">&quot; &quot;</span>.join(toc)</a>
+<a class="sourceLine" id="cb67-9" title="9"></a>
+<a class="sourceLine" id="cb67-10" title="10">    pageDic <span class="op">=</span> {}</a>
+<a class="sourceLine" id="cb67-11" title="11">    <span class="cf">for</span> l <span class="kw">in</span> listMod:</a>
+<a class="sourceLine" id="cb67-12" title="12">        pageDic[l] <span class="op">=</span> toc.replace(<span class="st">&#39;&gt;</span><span class="sc">%s</span><span class="st">&lt;&#39;</span> <span class="op">%</span> l, <span class="st">&#39; style=&quot;color: red;&quot;&gt;</span><span class="sc">%s</span><span class="st">&lt;&#39;</span> <span class="op">%</span> l)</a>
+<a class="sourceLine" id="cb67-13" title="13"></a>
+<a class="sourceLine" id="cb67-14" title="14">    <span class="cf">return</span>(pageDic)</a></code></pre></div>
+<p><em>HTML-Friendly BIB:</em> The following function simply makes a bib record look more readable, more HTML friendly. It removes excessive curly brackets; and some field that are not needed for display (you can modify it to adjust the way your records look).</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb68-1" title="1"><span class="kw">def</span> prettifyBib(bibText):</a>
+<a class="sourceLine" id="cb68-2" title="2">    bibText <span class="op">=</span> bibText.replace(<span class="st">&quot;</span><span class="sc">{{</span><span class="st">&quot;</span>, <span class="st">&quot;&quot;</span>).replace(<span class="st">&quot;</span><span class="sc">}}</span><span class="st">&quot;</span>, <span class="st">&quot;&quot;</span>)</a>
+<a class="sourceLine" id="cb68-3" title="3">    bibText <span class="op">=</span> re.sub(<span class="vs">r&quot;\n\s+file = [^\n]+&quot;</span>, <span class="st">&quot;&quot;</span>, bibText)</a>
+<a class="sourceLine" id="cb68-4" title="4">    bibText <span class="op">=</span> re.sub(<span class="vs">r&quot;\n\s+abstract = [^\n]+&quot;</span>, <span class="st">&quot;&quot;</span>, bibText)</a>
+<a class="sourceLine" id="cb68-5" title="5">    <span class="cf">return</span>(bibText)</a></code></pre></div>
+</div>
+<div id="extra-function" class="section level3">
+<h3><span class="header-section-number">9.2.3</span> Extra function</h3>
+<p>It always makes sense to write functions that do operations that we need frequently. For example, the fucntion below generates a dictionary of citation keys and paths to specific types of files. For instance, we can quickly create a dictionary of <code>.bib</code> files and then use this dictionary to process all <code>.bib</code> files.</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb69-1" title="1"><span class="kw">def</span> dicOfRelevantFiles(pathToMemex, extension):</a>
+<a class="sourceLine" id="cb69-2" title="2">    dic <span class="op">=</span> {}</a>
+<a class="sourceLine" id="cb69-3" title="3">    <span class="cf">for</span> subdir, dirs, files <span class="kw">in</span> os.walk(pathToMemex):</a>
+<a class="sourceLine" id="cb69-4" title="4">        <span class="cf">for</span> <span class="bu">file</span> <span class="kw">in</span> files:</a>
+<a class="sourceLine" id="cb69-5" title="5">            <span class="co"># process publication tf data</span></a>
+<a class="sourceLine" id="cb69-6" title="6">            <span class="cf">if</span> <span class="bu">file</span>.endswith(extension):</a>
+<a class="sourceLine" id="cb69-7" title="7">                key <span class="op">=</span> <span class="bu">file</span>.replace(extension, <span class="st">&quot;&quot;</span>)</a>
+<a class="sourceLine" id="cb69-8" title="8">                value <span class="op">=</span> os.path.join(subdir, <span class="bu">file</span>)</a>
+<a class="sourceLine" id="cb69-9" title="9">                dic[key] <span class="op">=</span> value</a>
+<a class="sourceLine" id="cb69-10" title="10">    <span class="cf">return</span>(dic)</a></code></pre></div>
+<p><em>Additional value:</em> in the first two steps we used bibTex bibliography exported from Zotero to process our publications and OCR relevant PDF files. Technically, right after we generated the structure (created all relevant folders, copied PDFs, and generated individual <code>.bib</code> files), we no longer need to rely on our big bibliography file, but rather use the very structure of our memex. The advantage of such an approach is that we can merge multiple memexes and then run only operations that are necessary to connect new publications with old ones.</p>
+</div>
+<div id="code-reuse" class="section level3">
+<h3><span class="header-section-number">9.2.4</span> Code Reuse</h3>
+<p>We have already discussed functions as a useful mechanism for code reuse; additionally, use can place often-used functions into a separate file (let’s call it <code>functions.py</code>) and import it with <code>import functions</code> in our other script. (<strong>IMPORTANT:</strong> <code>functions.py</code> <strong>must</strong> be in the same folder as you other script that imports it).</p>
+</div>
+<div id="missing-functions-the-index-page-and-the-contents-page" class="section level3">
+<h3><span class="header-section-number">9.2.5</span> Missing functions: The Index Page and the Contents Page</h3>
+<p>Since we are essentially creating a <em>local website</em>, we need a starting page—<em>index.html</em>—which will serve as the main entry point for our memex. Additionally, we would need a page where all the publications of our memex will be listed so that we could go and read whatever we are interested in. Your main task is to write such a function. In general, the main function avobe is your guide, although these two pages are significantly simpler. For the index page you need to “join” the <em>index page template</em> with the <em>index page content</em> (both are prepared and available in <code>./_misc/</code> folder). The content page is a bit trickier — you need to generate a list of publications—with links—and “join” it with the <em>index page template</em>.</p>
+<p>Your content page may look something like this:</p>
+<p><img src="images/sample_contents.png" /></p>
+<p>For information for each publication, you should use (at least): author or editor, year, title. You can use the following snippet as an example, but you are more than welcome to come us with your own representation.</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb70-1" title="1"><span class="kw">&lt;ul&gt;</span></a>
+<a class="sourceLine" id="cb70-2" title="2"><span class="kw">&lt;li&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;a/ab/AbbottThat2019/pages/DETAILS.html&quot;</span><span class="kw">&gt;</span>[AbbottThat2019]<span class="kw">&lt;/a&gt;</span> Abbott, Nicholas (2019) - <span class="kw">&lt;i&gt;</span>“In That One the Ālif Is Missing”: Eunuchs and the Politics of Masculinity in Early Colonial North India<span class="kw">&lt;/i&gt;&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb70-3" title="3"><span class="kw">&lt;li&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;a/ab/AbdullahMandaean2018/pages/DETAILS.html&quot;</span><span class="kw">&gt;</span>[AbdullahMandaean2018]<span class="kw">&lt;/a&gt;</span> Abdullah, Thabit A. J. (2018) - <span class="kw">&lt;i&gt;</span>The Mandaean Community and Ottoman-British Rivalry in Late 19th-Century Iraq: The Curious Case of Shaykh Ṣaḥan<span class="kw">&lt;/i&gt;&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb70-4" title="4"><span class="kw">&lt;li&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;a/ab/AbdurasulovMaking2020/pages/DETAILS.html&quot;</span><span class="kw">&gt;</span>[AbdurasulovMaking2020]<span class="kw">&lt;/a&gt;</span> Abdurasulov, Ulfatbek (2020) - <span class="kw">&lt;i&gt;</span>Making Sense of Central Asia in Pre-Petrine Russia<span class="kw">&lt;/i&gt;&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb70-5" title="5"><span class="kw">&lt;li&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;a/ac/Ackerman-LiebermanContractual2011/pages/DETAILS.html&quot;</span><span class="kw">&gt;</span>[Ackerman-LiebermanContractual2011]<span class="kw">&lt;/a&gt;</span> Ackerman-Lieberman, Phillip I. (2011) - <span class="kw">&lt;i&gt;</span>Contractual Partnerships in the Geniza and the Relationship between Islamic Law and Practice<span class="kw">&lt;/i&gt;&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb70-6" title="6"><span class="kw">&lt;/ul&gt;</span></a></code></pre></div>
+<p>To make it a little bit easier, the actual template for each publication may look as follows:</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb71-1" title="1"><span class="kw">&lt;li&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;@PATHTOPUBL@/pages/DETAILS.html&quot;</span><span class="kw">&gt;</span>[@CITEKEY@]<span class="kw">&lt;/a&gt;</span> @AUTHOR@ (@DATE@) - <span class="kw">&lt;i&gt;</span>@TITLE@<span class="kw">&lt;/i&gt;&lt;/li&gt;</span></a></code></pre></div>
+</div>
+</div>
+<div id="HWL09" class="section level2">
+<h2><span class="header-section-number">9.3</span> Homework</h2>
+<ul>
+<li>the task is described above.</li>
+<li>additionally, take the solution scripts from the previous lesson and annotate every line of code; submit your annotations together with the main assignment; if you have any suggestions for improvements, please share them (this will count as extra points :).</li>
+<li>upload your results to your memex github repository
+<ul>
+<li>place annotated scripts into <code>_misc</code> subfolder</li>
 </ul></li>
 </ul>
 </div>
-<div id="main-functionality" class="section level3">
-<h3><span class="header-section-number">1.2.2</span> Main Functionality</h3>
-<p>You need to be able to do the following tasks with your Zotero in order to take full advantage of its functionality.</p>
-<p><em>Online Tutorials</em>: If you prefer video tutorials, you can check a series of tutorials prepared by the <a href="https://www.youtube.com/playlist?list=PL4asXgsr6ek5H5mM9GlA1d-YCb9KvP3Ja">McGill Library</a> (there are also plenty other tutorials on YouTube :); if you prefer to read, you can check a series of tutorials prepared by the <a href="https://guides.lib.berkeley.edu/zotero">UC Berkley Library</a>.</p>
-<ol style="list-style-type: decimal">
-<li><strong>Adding bibliographical records (and PDFs)</strong></li>
-</ol>
-<ul>
-<li><em>Using Zotero Connector</em>: the easiest way to add a reference is from a browser with Zotero connector. This can be done practically from any library or journal database (e.g., Uni Wien Library, Worldcat.org, JSTOR); simply click the connector button while you are on a page with a publication that you want to add to your Zotero database. PDF may be automatically downloaded, if available; keep in mind that in places like JSTOR you need to agree to terms before this function will work; what you need to do is to download one PDF manually from a JSTOR page, where you will be asked to agree to terms of their services;</li>
-<li><em>Drag-and-dropping PDFs into Zotero</em>; this however works only when Zotero can parse relevant bibliographical information from a PDF; This might be a good way to start if you already have lots of PDFs that you want to add to Zotero.</li>
-<li><em>Using Unique Identifiers</em>: you can use ISBN or DOI numbers.</li>
-<li><em>Using Import</em>: you can import bibliographical data from another application or from bibliographical files (formats, like RIS, which you can download from most libraries as well).</li>
-<li><em>Manually</em>: you can manually add and fill in a record as well.</li>
-</ul>
-<ol start="2" style="list-style-type: decimal">
-<li><strong>Write-and-cite</strong></li>
-</ol>
-<ul>
-<li><em>Detailed Instructions</em>: <a href="https://www.zotero.org/support/word_processor_plugin_usage">MS Word</a>, <a href="https://www.zotero.org/support/libreoffice_writer_plugin_usage">LibreOffice</a> and <a href="https://www.zotero.org/support/google_docs">Google Docs</a>; you can also check the video tutorial.</li>
-<li><em>Add a citation</em></li>
-<li><em>Customize a citation</em> (by adding prefixes, suffixes, page range for a specific reference, etc.).</li>
-<li><em>Change citation style</em>.
-<ul>
-<li>For example, change from <em>Chicago Manual of Style</em> to <em>Universität Wien - Institut für Geschichte</em> (Yes, there is this specific citation style for Zotero: <a href="https://www.zotero.org/styles?q=id%3Auniversitat-wien-institut-fur-geschichte" class="uri">https://www.zotero.org/styles?q=id%3Auniversitat-wien-institut-fur-geschichte</a>); in order to do that you need to download the IfG style and install it into Zotero.</li>
-<li>You can find lots of different citation styles here: <a href="https://www.zotero.org/styles" class="uri">https://www.zotero.org/styles</a>; to add a new style to Zotero:
-<ul>
-<li>download the style you want.</li>
-<li>Open Zotero. Go to Preferences (under Zotero, Edit, or Tools — depending on your system).</li>
-<li>Click the “Cite” button.</li>
-<li>Click the “Styles” tab.</li>
-<li>Click the <code>+</code> button at the bottom right.</li>
-<li>Select the style file you saved in the first step.</li>
-</ul></li>
-</ul></li>
-<li><em>Generate and update bibliography</em> in your paper.</li>
-<li><strong>NB:</strong> If you use Zotero plugin for adding your citations, they remain connected to Zotero and can be automatically reformatted; you can also drag-and-drop any bibliographical record into any text editor—the reference will be formatted according to the currently selelected style, but it will not be connected to Zotero and cannot be reformatted automatically later.</li>
-</ul>
-<ol start="3" style="list-style-type: decimal">
-<li><strong>General Maintenance and Organization</strong></li>
-</ol>
-<ul>
-<li>Zotero can [automatically] rename PDFs using metadata, although the default function is not very robust (see, <em>Zotfile</em> plugin below).</li>
-<li>You can create “collections” and drag-and-drop publications relevant to a specific topic or project you are working on.</li>
-</ul>
+<div id="HWL09S" class="section level2">
+<h2><span class="header-section-number">9.4</span> Homework Solution</h2>
+<p><em>stay tuned</em></p>
 </div>
-<div id="additional-functionality-plug-ins" class="section level3">
-<h3><span class="header-section-number">1.2.3</span> Additional Functionality: Plug-Ins</h3>
-<p>There is a variety of third-party plugins that you can add to Zotero for additional functionality. The list of plugins can be found at <a href="https://www.zotero.org/support/plugins" class="uri">https://www.zotero.org/support/plugins</a>. To install a plugin, you need to download its <code>.xpi</code> file to your computer. Then, in Zotero, click “Tools → Add-Ons”, then drag the <code>.xpi</code> for the plugin onto the Add-Ons window that opens. Two plugins will be of particular interest to us: <code>Zotfile</code> and <code>BetterBibTeX</code>.</p>
-</div>
-<div id="zotfile" class="section level3">
-<h3><span class="header-section-number">1.2.4</span> Zotfile</h3>
-<p>Zotfile (<a href="http://zotfile.com/" class="uri">http://zotfile.com/</a>) is a Zotero plugin to manage your attachments: automatically rename, move, and attach PDFs (or other files) to Zotero items, sync PDFs from your Zotero library to your (mobile) PDF reader (e.g. an iPad, Android tablet, etc.) and extract annotations from PDF files.</p>
-<p>This plugin is particularly helpful for organizing PDFs on your hard drive. By default, Zotero saves PDFs in a computationally safe, but humanely incomprehensible manner: each PDF, even if it is renamed from bibliographical metadata and is human readable, it is still placed into a folder whose name is a random sequence of characters. Zotfile allows you to organize PDFs in a more human-friendly manner. The first screenshot below shows Zotero default mode, while the second one shows Zotfile mode: essentially, Zotfile creates a folder for each author and PDFs of all publications by that author get placed in that folder. You can sync this folder with Dropbox or other cloud service and access it from your tablet or phone.</p>
-<div class="figure">
-<img src="images/zotero_default.png" alt="Zotero default organization." />
-<p class="caption">Zotero default organization.</p>
-</div>
-<div class="figure">
-<img src="images/zotero_zotfile.png" alt="Zotfile organization." />
-<p class="caption">Zotfile organization.</p>
-</div>
-</div>
-<div id="better-bibtex-for-zotero" class="section level3">
-<h3><span class="header-section-number">1.2.5</span> Better BibTeX for Zotero</h3>
-<p>For a moment this will not be an immediately useful plug-in, but it is the most important one for our Memex project. This plugin exports bibliographical data into a <code>bibTeX</code> format, which is very easy to process with python scripts (it also generates <em>citation keys</em> which can be used for citation in markdown, which we will cover later). The two screenshots below show how the same record looks in Zotero preview and in the <code>bibTeX</code> format.</p>
-<div class="figure">
-<img src="images/rec_zotero.png" alt="A Record in Zotero." />
-<p class="caption">A Record in Zotero.</p>
-</div>
-<div class="figure">
-<img src="images/rec_bibtex.png" alt="The Same Record in BibTeX Format." />
-<p class="caption">The Same Record in <code>BibTeX</code> Format.</p>
-</div>
-</div>
-</div>
-<div id="HWL01" class="section level2">
-<h2><span class="header-section-number">1.3</span> Homework</h2>
-<ul>
-<li>collect 30-50 bibliographic records into your Zotero (ideally with PDFs); the number may seem like a lot, but you will see that you can do that it will take only about 30 mins on JSTOR; those of you who are already using Zotero must already have more than 50 records in your databases.</li>
-<li>clearly, you should be collecting items that are relevant to your fields of study and your research; organize them into folders, if that is necessary;</li>
-<li><strong>create Bibliography and email it to me</strong> (this is one-click operation; try to figure on your own how to do this; asking on <em>Slack</em> counts);</li>
-<li>make sure that you are comfortable with the main functionality of Zotero; that you have the discussed plugins installed; to get comfortable with the main functionality, you should practice each listed procedure at least a couple of times.</li>
-<li><strong>in preparation for the next class</strong>, please, watch the following two short videos from Dr. Paul Vierthaler’s <em>Hacking the Humanities</em> series:
-<ul>
-<li><a href="https://www.youtube.com/watch?v=fhsH4ua9zP8&amp;list=PL6kqrM2i6BPIpEF5yHPNkYhjHm-FYWh17&amp;index=1">Episode 1: Introduction to the Hacking the Humanities Tutorial Series</a> and install Python via Anaconda; you can also install Python directly from <a href="https://www.python.org/" class="uri">https://www.python.org/</a>, but Anaconda distribution might make your life easier, especially if you are on Windows.</li>
-<li><a href="https://www.youtube.com/watch?v=q5b19xMb97I&amp;list=PL6kqrM2i6BPIpEF5yHPNkYhjHm-FYWh17&amp;index=2&amp;t=206s">Episode 2: The Command Prompt</a>.</li>
-</ul></li>
-</ul>
-<p><strong>Submitting homework:</strong></p>
-<ul>
-<li>Homework assignment must be submitted by the beginning of the next class;</li>
-<li>Email your homework to the instructor as attachments.
-* In the subject of your email, please, add the following: <code>CCXXXXX-LXX-HW-YourLastName-YourMatriculationNumber</code>, where <code>CCXXXXX</code> is the numeric code of the course; <code>LXX</code> is the lesson for which the homework is being submitted; <code>YourLastName</code> is your last name, and <code>YourMatriculationNumber</code> is your matriculation number.</li>
-</ul>
+<div id="additional-materials-html-css-tfidf" class="section level2">
+<h2><span class="header-section-number">9.5</span> Additional materials: HTML, CSS; TFIDF</h2>
+<p>To get a better idea of HTML and CSS, take a look at the following tutorials at <em>Programming Historian</em>: <span class="citation">(Turkel and Crymble <a href="#ref-TurkelUnderstanding2012a">2012</a><a href="#ref-TurkelUnderstanding2012a">b</a>)</span> and <span class="citation">(Turkel and Crymble <a href="#ref-TurkelCreating2012">2012</a><a href="#ref-TurkelCreating2012">a</a>)</span>; see also <a href="https://www.w3.org/Style/Examples/011/firstcss.en.html">starting with HTML + CSS</a>.</p>
+<p>Next time we will discuss <em>keyword extraction</em>. It will be beneficial for all if you do some readings on TF-IDF. Please, read Chapter 1 in Ramsay’s <em>Reading Machines</em> <span class="citation">(Ramsay <a href="#ref-RamsayReading2011">2011</a>)</span>, which is digitally available via <a href="https://usearch.univie.ac.at/primo-explore/fulldisplay?docid=TN_cdi_proquest_miscellaneous_2131816455&amp;context=PC&amp;vid=UWI&amp;lang=en_US&amp;search_scope=UWI_UBBestand&amp;adaptor=primo_central_multiple_fe&amp;tab=default_tab&amp;query=any,contains,ramsay%20reading%20machines&amp;mode=basic">Uni Wien Library</a>; and take a quick look at Lavin’s <em>Analyzing Documents with TF-IDF</em> on <em>Programming Historian</em> <span class="citation">(Lavin <a href="#ref-LavinAnalyzing2019">2019</a>)</span>.</p>
 
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-LavinAnalyzing2019">
+<p>Lavin, Matthew J. 2019. “Analyzing Documents with TF-IDF.” <em>Programming Historian</em>, May. <a href="https://programminghistorian.org/en/lessons/analyzing-documents-with-tfidf">https://programminghistorian.org/en/lessons/analyzing-documents-with-tfidf</a>.</p>
+</div>
+<div id="ref-RamsayReading2011">
+<p>Ramsay, Stephen. 2011. <em>Reading Machines: Toward an Algorithmic Criticism</em>. Topics in the Digital Humanities. Urbana: University of Illinois Press.</p>
+</div>
+<div id="ref-TurkelCreating2012">
+<p>Turkel, William J., and Adam Crymble. 2012a. “Creating and Viewing HTML Files with Python.” <em>Programming Historian</em>, July. <a href="https://programminghistorian.org/en/lessons/creating-and-viewing-html-files-with-python">https://programminghistorian.org/en/lessons/creating-and-viewing-html-files-with-python</a>.</p>
+</div>
+<div id="ref-TurkelUnderstanding2012a">
+<p>Turkel, William J., and Adam Crymble. 2012a. “Creating and Viewing HTML Files with Python.” <em>Programming Historian</em>, July. <a href="https://programminghistorian.org/en/lessons/creating-and-viewing-html-files-with-python">https://programminghistorian.org/en/lessons/creating-and-viewing-html-files-with-python</a>.</p> 2012b. “Understanding Web Pages and HTML.” <em>Programming Historian</em>, July. <a href="https://programminghistorian.org/en/lessons/viewing-html-files">https://programminghistorian.org/en/lessons/viewing-html-files</a>.</p>
 </div>
 </div>
             </section>
@@ -430,8 +502,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="work-plan.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="lesson-02.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="lesson-08.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="syllabus.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
