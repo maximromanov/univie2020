@@ -24,7 +24,7 @@
 <meta name="author" content="Maxim G. Romanov" />
 
 
-<meta name="date" content="2021-01-12" />
+<meta name="date" content="2021-01-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -298,9 +298,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="12" data-path="lesson-12.html"><a href="lesson-12.html"><i class="fa fa-check"></i><b>12</b> Lesson 12</a><ul>
 <li class="chapter" data-level="12.1" data-path="lesson-12.html"><a href="lesson-12.html#building-memex---step-6-or-actually-back-to-step-3"><i class="fa fa-check"></i><b>12.1</b> Building Memex - Step 6 (or, actually, back to Step 3)</a></li>
-<li class="chapter" data-level="12.2" data-path="lesson-12.html"><a href="lesson-12.html#some-thoughts-and-notes"><i class="fa fa-check"></i><b>12.2</b> Some thoughts and notes</a></li>
-<li class="chapter" data-level="12.3" data-path="lesson-12.html"><a href="lesson-12.html#HWL12"><i class="fa fa-check"></i><b>12.3</b> Homework</a></li>
-<li class="chapter" data-level="12.4" data-path="lesson-12.html"><a href="lesson-12.html#HWL12S"><i class="fa fa-check"></i><b>12.4</b> Homework Solution</a></li>
+<li class="chapter" data-level="12.2" data-path="lesson-12.html"><a href="lesson-12.html#the-index-page"><i class="fa fa-check"></i><b>12.2</b> The Index Page</a></li>
+<li class="chapter" data-level="12.3" data-path="lesson-12.html"><a href="lesson-12.html#the-publication-pages"><i class="fa fa-check"></i><b>12.3</b> The Publication Pages</a></li>
+<li class="chapter" data-level="12.4" data-path="lesson-12.html"><a href="lesson-12.html#HWL12"><i class="fa fa-check"></i><b>12.4</b> Homework</a></li>
+<li class="chapter" data-level="12.5" data-path="lesson-12.html"><a href="lesson-12.html#HWL12S"><i class="fa fa-check"></i><b>12.5</b> Homework Solution</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html"><i class="fa fa-check"></i>Syllabus</a><ul>
 <li class="chapter" data-level="" data-path="syllabus.html"><a href="syllabus.html#course-details"><i class="fa fa-check"></i>Course Details</a></li>
@@ -339,18 +340,109 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">12</span> Lesson 12</h1>
 <div id="building-memex---step-6-or-actually-back-to-step-3" class="section level2">
 <h2><span class="header-section-number">12.1</span> Building Memex - Step 6 (or, actually, back to Step 3)</h2>
-<ul>
-<li>Finishing Interface: index page, searches, publication view</li>
-</ul>
+<p>All that’s left is to update out interface. We need to update the index page (our main entry point into the memex), which will include both a) the table [of contents] for our searches (links to pages with results for individual searches), and b) the table [of contents] for all the publications we are including into our memex. Additionally, we will need to update our publication pages so that they include our similarity results.</p>
 </div>
-<div id="some-thoughts-and-notes" class="section level2">
-<h2><span class="header-section-number">12.2</span> Some thoughts and notes</h2>
-<p>…</p>
+<div id="the-index-page" class="section level2">
+<h2><span class="header-section-number">12.2</span> The Index Page</h2>
+<p>Our index page should contain two automatically generated elements: 1) the table [of contents] for the searches that we had run; 2) the table [of contents] for all the publications that we have included into the memex. The way it may look is shown on the screenshot below. You are, of course, more than welcome to change it so that it fits better your own vision (the page still must contain all the major components shown below).</p>
+<p><img src="images/sample_indexPage.png" /></p>
+<p>In order to generate our two tables we could write two functions: one to process searches, and another — to process publications. Below is a fully working function that processes searches (i.e., generates an html page for each search file) and returns a table [of contents] which we can then include into our main index file:</p>
+<div class="sourceCode" id="cb82"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb82-1" title="1"><span class="co"># generate search pages and TOC</span></a>
+<a class="sourceLine" id="cb82-2" title="2"><span class="kw">def</span> formatSearches(pathToMemex):</a>
+<a class="sourceLine" id="cb82-3" title="3">    <span class="cf">with</span> <span class="bu">open</span>(settings[<span class="st">&quot;template_search&quot;</span>], <span class="st">&quot;r&quot;</span>, encoding<span class="op">=</span><span class="st">&quot;utf8&quot;</span>) <span class="im">as</span> f1:</a>
+<a class="sourceLine" id="cb82-4" title="4">        indexTmpl <span class="op">=</span> f1.read()</a>
+<a class="sourceLine" id="cb82-5" title="5">    dof <span class="op">=</span> functions.dicOfRelevantFiles(pathToMemex, <span class="st">&quot;.searchResults&quot;</span>)</a>
+<a class="sourceLine" id="cb82-6" title="6"></a>
+<a class="sourceLine" id="cb82-7" title="7">    toc <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb82-8" title="8">    <span class="cf">for</span> <span class="bu">file</span>, pathToFile <span class="kw">in</span> dof.items():</a>
+<a class="sourceLine" id="cb82-9" title="9">        searchResults <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb82-10" title="10">        data <span class="op">=</span> json.load(<span class="bu">open</span>(pathToFile))</a>
+<a class="sourceLine" id="cb82-11" title="11">        </a>
+<a class="sourceLine" id="cb82-12" title="12">        <span class="co"># collect toc</span></a>
+<a class="sourceLine" id="cb82-13" title="13">        template <span class="op">=</span> <span class="st">&quot;&lt;tr&gt; &lt;td&gt;</span><span class="sc">%s</span><span class="st">&lt;/td&gt; &lt;td&gt;</span><span class="sc">%s</span><span class="st">&lt;/td&gt; &lt;td&gt;</span><span class="sc">%s</span><span class="st">&lt;/td&gt; &lt;td&gt;</span><span class="sc">%s</span><span class="st">&lt;/td&gt;&lt;/tr&gt;&quot;</span></a>
+<a class="sourceLine" id="cb82-14" title="14"></a>
+<a class="sourceLine" id="cb82-15" title="15">        linkToSearch <span class="op">=</span> os.path.join(<span class="st">&quot;searches&quot;</span>, <span class="bu">file</span><span class="op">+</span><span class="st">&quot;.html&quot;</span>)</a>
+<a class="sourceLine" id="cb82-16" title="16">        pathToPage <span class="op">=</span> <span class="st">&#39;&lt;a href=&quot;</span><span class="sc">%s</span><span class="st">&quot;&gt;&lt;i&gt;read&lt;/i&gt;&lt;/a&gt;&#39;</span> <span class="op">%</span> linkToSearch</a>
+<a class="sourceLine" id="cb82-17" title="17">        searchString <span class="op">=</span> <span class="st">&#39;&lt;div class=&quot;searchString&quot;&gt;</span><span class="sc">%s</span><span class="st">&lt;/div&gt;&#39;</span> <span class="op">%</span> data.pop(<span class="st">&quot;searchString&quot;</span>)</a>
+<a class="sourceLine" id="cb82-18" title="18">        timeStamp <span class="op">=</span> data.pop(<span class="st">&quot;timestamp&quot;</span>)</a>
+<a class="sourceLine" id="cb82-19" title="19">        tocItem <span class="op">=</span> template <span class="op">%</span> (pathToPage, searchString, <span class="bu">len</span>(data), timeStamp)</a>
+<a class="sourceLine" id="cb82-20" title="20">        toc.append(tocItem)</a>
+<a class="sourceLine" id="cb82-21" title="21"></a>
+<a class="sourceLine" id="cb82-22" title="22">        <span class="co"># generate the results page</span></a>
+<a class="sourceLine" id="cb82-23" title="23">        keys <span class="op">=</span> <span class="bu">sorted</span>(data.keys(), reverse<span class="op">=</span><span class="va">True</span>)</a>
+<a class="sourceLine" id="cb82-24" title="24">        <span class="cf">for</span> k <span class="kw">in</span> keys:</a>
+<a class="sourceLine" id="cb82-25" title="25">            searchResSingle <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb82-26" title="26">            results <span class="op">=</span> data[k]</a>
+<a class="sourceLine" id="cb82-27" title="27">            temp <span class="op">=</span> k.split(<span class="st">&quot;::::&quot;</span>)</a>
+<a class="sourceLine" id="cb82-28" title="28">            header <span class="op">=</span> <span class="st">&quot;</span><span class="sc">%s</span><span class="st"> (pages with results: </span><span class="sc">%d</span><span class="st">)&quot;</span> <span class="op">%</span> (temp[<span class="dv">1</span>], <span class="bu">int</span>(temp[<span class="dv">0</span>]))</a>
+<a class="sourceLine" id="cb82-29" title="29">            <span class="cf">for</span> page, excerpt <span class="kw">in</span> results.items():</a>
+<a class="sourceLine" id="cb82-30" title="30">                pdfPage <span class="op">=</span> <span class="bu">int</span>(page)</a>
+<a class="sourceLine" id="cb82-31" title="31">                linkToPage <span class="op">=</span> <span class="st">&#39;&lt;a href=&quot;../</span><span class="sc">%s</span><span class="st">&quot;&gt;&lt;i&gt;go to the original page...&lt;/i&gt;&lt;/a&gt;&#39;</span> <span class="op">%</span> excerpt[<span class="st">&quot;pathToPage&quot;</span>]</a>
+<a class="sourceLine" id="cb82-32" title="32">                searchResSingle.append(<span class="st">&quot;&lt;li&gt;&lt;b&gt;&lt;hr&gt;(pdfPage: </span><span class="sc">%d</span><span class="st">)&lt;/b&gt;&lt;hr&gt; </span><span class="sc">%s</span><span class="st"> &lt;hr&gt; </span><span class="sc">%s</span><span class="st"> &lt;/li&gt;&quot;</span> <span class="op">%</span> (pdfPage, excerpt[<span class="st">&quot;result&quot;</span>], linkToPage))</a>
+<a class="sourceLine" id="cb82-33" title="33">            searchResSingle <span class="op">=</span> <span class="st">&quot;&lt;ul&gt;</span><span class="ch">\n</span><span class="sc">%s</span><span class="ch">\n</span><span class="st">&lt;/ul&gt;&quot;</span> <span class="op">%</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>.join(searchResSingle)</a>
+<a class="sourceLine" id="cb82-34" title="34">            searchResSingle <span class="op">=</span> generalTemplate.replace(<span class="st">&quot;@ELEMENTHEADER@&quot;</span>, header).replace(<span class="st">&quot;@ELEMENTCONTENT@&quot;</span>, searchResSingle)</a>
+<a class="sourceLine" id="cb82-35" title="35">            searchResults.append(searchResSingle)</a>
+<a class="sourceLine" id="cb82-36" title="36">        </a>
+<a class="sourceLine" id="cb82-37" title="37">        searchResults <span class="op">=</span> <span class="st">&quot;&lt;h2&gt;SEARCH RESULTS FOR: &lt;i&gt;</span><span class="sc">%s</span><span class="st">&lt;/i&gt;&lt;/h2&gt;</span><span class="ch">\n\n</span><span class="st">&quot;</span> <span class="op">%</span> searchString <span class="op">+</span> <span class="st">&quot;</span><span class="ch">\n\n</span><span class="st">&quot;</span>.join(searchResults)</a>
+<a class="sourceLine" id="cb82-38" title="38">        <span class="cf">with</span> <span class="bu">open</span>(pathToFile.replace(<span class="st">&quot;.searchResults&quot;</span>, <span class="st">&quot;.html&quot;</span>), <span class="st">&quot;w&quot;</span>, encoding<span class="op">=</span><span class="st">&quot;utf8&quot;</span>) <span class="im">as</span> f9:</a>
+<a class="sourceLine" id="cb82-39" title="39">            f9.write(indexTmpl.replace(<span class="st">&quot;@MAINCONTENT@&quot;</span>, searchResults))</a>
+<a class="sourceLine" id="cb82-40" title="40"></a>
+<a class="sourceLine" id="cb82-41" title="41">    toc <span class="op">=</span> searchesTemplate.replace(<span class="st">&quot;@TABLECONTENTS@&quot;</span>, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>.join(toc))</a>
+<a class="sourceLine" id="cb82-42" title="42">    <span class="cf">return</span>(toc)</a></code></pre></div>
+<p>And this is the content of <code>generalTemplate</code> and <code>searchesTemplate</code> used in the function:</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb83-1" title="1">generalTemplate <span class="op">=</span> <span class="st">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb83-2" title="2"><span class="st">&lt;button class=&quot;collapsible&quot;&gt;@ELEMENTHEADER@&lt;/button&gt;</span></a>
+<a class="sourceLine" id="cb83-3" title="3"><span class="st">&lt;div class=&quot;content&quot;&gt;</span></a>
+<a class="sourceLine" id="cb83-4" title="4"></a>
+<a class="sourceLine" id="cb83-5" title="5"><span class="st">@ELEMENTCONTENT@</span></a>
+<a class="sourceLine" id="cb83-6" title="6"></a>
+<a class="sourceLine" id="cb83-7" title="7"><span class="st">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb83-8" title="8"><span class="st">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb83-9" title="9"></a>
+<a class="sourceLine" id="cb83-10" title="10">searchesTemplate <span class="op">=</span> <span class="st">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb83-11" title="11"><span class="st">&lt;button class=&quot;collapsible&quot;&gt;SAVED SEARCHES&lt;/button&gt;</span></a>
+<a class="sourceLine" id="cb83-12" title="12"><span class="st">&lt;div class=&quot;content&quot;&gt;</span></a>
+<a class="sourceLine" id="cb83-13" title="13"><span class="st">&lt;table id=&quot;&quot; class=&quot;display&quot; width=&quot;100%&quot;&gt;</span></a>
+<a class="sourceLine" id="cb83-14" title="14"><span class="st">&lt;thead&gt;</span></a>
+<a class="sourceLine" id="cb83-15" title="15"><span class="st">    &lt;tr&gt;</span></a>
+<a class="sourceLine" id="cb83-16" title="16"><span class="st">        &lt;th&gt;&lt;i&gt;link&lt;/i&gt;&lt;/th&gt;</span></a>
+<a class="sourceLine" id="cb83-17" title="17"><span class="st">        &lt;th&gt;search string&lt;/th&gt;</span></a>
+<a class="sourceLine" id="cb83-18" title="18"><span class="st">        &lt;th&gt;# of publications with matches&lt;/th&gt;</span></a>
+<a class="sourceLine" id="cb83-19" title="19"><span class="st">        &lt;th&gt;time stamp&lt;/th&gt;</span></a>
+<a class="sourceLine" id="cb83-20" title="20"><span class="st">    &lt;/tr&gt;</span></a>
+<a class="sourceLine" id="cb83-21" title="21"><span class="st">&lt;/thead&gt;</span></a>
+<a class="sourceLine" id="cb83-22" title="22"></a>
+<a class="sourceLine" id="cb83-23" title="23"><span class="st">&lt;tbody&gt;</span></a>
+<a class="sourceLine" id="cb83-24" title="24"><span class="st">@TABLECONTENTS@</span></a>
+<a class="sourceLine" id="cb83-25" title="25"><span class="st">&lt;/tbody&gt;</span></a>
+<a class="sourceLine" id="cb83-26" title="26"></a>
+<a class="sourceLine" id="cb83-27" title="27"><span class="st">&lt;/table&gt;</span></a>
+<a class="sourceLine" id="cb83-28" title="28"><span class="st">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb83-29" title="29"><span class="st">&quot;&quot;&quot;</span></a></code></pre></div>
+<p>There is nothing overly complicated in <code>generalTemplate</code>, but we want to take a closer look at the <code>searchesTemplate</code>. Please, note those <code>&lt;thead&gt;</code> and <code>&lt;tbody&gt;</code> tags, which surround the table header and the table main content, respectively. These are important elements without which the dynamic table filtering and [re]ordering will not work properly. Also, if you want to change the number of columns in your table, you will need to modify both the template and your python code so that the number of columns that you generate with the script corresponds to the number of columns given in the <code>&lt;thead&gt;</code> element (currently in the template there are four columns (<code>link</code>, <code>search string</code>, <code>@ of publications with mmatches</code>, and <code>time stamp</code>)).</p>
+<p>Using this function, write another one that generates the table [of content] for all included publications.</p>
+<p>You can use <a href="https://github.com/maximromanov/memex_sandbox/blob/main/_misc/sample_index.html">this page</a> as an example of what you need to generate. Look at the HTML code carefully; compare it with the HTML template; identify elements that are static and those that must be generated from your data; write the code that generates your elements.</p>
+</div>
+<div id="the-publication-pages" class="section level2">
+<h2><span class="header-section-number">12.3</span> The Publication Pages</h2>
+<p>Essentially, you need to adapt the same procedure to [re]generate publication pages: you will need to add tables with the most similar results based on our <em>tf-idf</em> similarity distances that we generated before. The final results should look like what you seen on the screenshots below.</p>
+<p>Keep in mind that, like before, the very first page contains different information, if compared to all the other pages.</p>
+<ul>
+<li>the author(s) and the title as the main header</li>
+<li>the bibliographical record in bibTeX format (folded on the screenshot)</li>
+<li>the wordcloud of main keywords</li>
+<li>and the table of distances with most similar publications</li>
+</ul>
+<p><img src="images/sample_publicationFirstPage.png" /></p>
+<p>All the other pages look a little bit differently as they include the image of the page and the table of distances to clusters of pages, rather than complete publications (as shown on two screenshots below):</p>
+<p><img src="images/sample_publicationSecondPageA.png" /></p>
+<p><img src="images/sample_publicationSecondPageB.png" /></p>
+<p>You can use <a href="https://github.com/maximromanov/memex_sandbox/blob/main/_misc/sample_PublicationFirstPage.html">this</a> and <a href="https://github.com/maximromanov/memex_sandbox/blob/main/_misc/sample_PublicationSecondPage.html">this</a> pages as examples of what you need to generate. (<strong>Note:</strong> Look at the HTML code carefully; compare it with the HTML template; identify elements that are static and those that must be generated from your data; write the code htat generates your elements.)</p>
 </div>
 <div id="HWL12" class="section level2">
-<h2><span class="header-section-number">12.3</span> Homework</h2>
+<h2><span class="header-section-number">12.4</span> Homework</h2>
 <ul>
-<li><p>…</p></li>
+<li><p>write scripts that generate: 1) the index page; 2) publication pages.</p></li>
 <li>additionally, take the solution scripts from the previous lesson and annotate every line of code; submit your annotations together with the main assignment; if you have any suggestions for improvements, please share them (this will count as extra points :).</li>
 <li>upload your results to your memex github repository
 <ul>
@@ -359,8 +451,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </div>
 <div id="HWL12S" class="section level2">
-<h2><span class="header-section-number">12.4</span> Homework Solution</h2>
-<p><em>stay tuned</em></p>
+<h2><span class="header-section-number">12.5</span> Homework Solution</h2>
+<p><em>solution will be added later to the main repository</em></p>
 
 </div>
 </div>
